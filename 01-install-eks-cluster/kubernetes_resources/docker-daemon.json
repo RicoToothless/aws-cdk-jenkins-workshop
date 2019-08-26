@@ -1,0 +1,11 @@
+{
+    "bridge": "docker0",
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "10"
+    },
+    "live-restore": false,
+    "max-concurrent-downloads": 10,
+    "experimental": true
+}

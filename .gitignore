@@ -1,0 +1,16 @@
+# Python virtualenv
+.env/
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Distribution / packaging
+*.egg-info/
+
+# CDK Context & Staging files
+cdk.context.json
+.cdk.staging/
+cdk.out/
+
+# VSCode files
+.vscode
