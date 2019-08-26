@@ -6,6 +6,6 @@ from eks_cluster.eks_cluster_stack import EksClusterStack
 
 
 app = core.App()
-EksClusterStack(app, "eks-cluster")
+EksClusterStack(app, "eks-cluster", env={'region': 'ap-northeast-2'})
 
 app.synth()
