@@ -15,6 +15,12 @@ class EksClusterStack(core.Stack):
             default_capacity_instance=ec2.InstanceType('t2.medium')
         )
 
+        eks_master_role = iam.Role(self, 'AdminRole',
+            assumed_by=iam.ArnPrincipal('your iam user ARN')
+        )
+
+        cluster.aws_auth.add_masters_role(eks_master_role)
+
         cluster.add_resource('node-frontend',
             {
                "apiVersion": "v1",
