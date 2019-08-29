@@ -21,6 +21,42 @@ class EksClusterStack(core.Stack):
 
         cluster.aws_auth.add_masters_role(eks_master_role)
 
+        cluster.add_resource('helm-tiller',
+            {
+                "kind": "List",
+                "apiVersion": "v1",
+                "metadata": {},
+                "items": [
+                    {
+                        "kind": "ServiceAccount",
+                        "apiVersion": "v1",
+                        "metadata": {
+                            "name": "tiller"
+                        }
+                    },
+                    {
+                        "kind": "ClusterRoleBinding",
+                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "metadata": {
+                            "name": "tiller"
+                        },
+                        "subjects": [
+                            {
+                                "kind": "ServiceAccount",
+                                "name": "tiller",
+                                "namespace": "kube-system"
+                            }
+                        ],
+                        "roleRef": {
+                            "apiGroup": "rbac.authorization.k8s.io",
+                            "kind": "ClusterRole",
+                            "name": "cluster-admin"
+                        }
+                    }
+                ]
+            }
+        )
+
         cluster.add_resource('node-frontend',
             {
                "apiVersion": "v1",
