@@ -11,7 +11,7 @@ class EksClusterStack(core.Stack):
         super().__init__(scope, id, **kwargs)
 
         cluster = eks.Cluster(self, 'hello-eks',
-            default_capacity=2,
+            default_capacity=4,
             default_capacity_instance=ec2.InstanceType('t2.medium')
         )
 
@@ -25,18 +25,18 @@ class EksClusterStack(core.Stack):
             {
                 "kind": "List",
                 "apiVersion": "v1",
-                "metadata": {},
                 "items": [
                     {
                         "kind": "ServiceAccount",
                         "apiVersion": "v1",
                         "metadata": {
-                            "name": "tiller"
+                            "name": "tiller",
+                            "namespace": "kube-system"
                         }
                     },
                     {
                         "kind": "ClusterRoleBinding",
-                        "apiVersion": "rbac.authorization.k8s.io/v1",
+                        "apiVersion": "rbac.authorization.k8s.io/v1beta1",
                         "metadata": {
                             "name": "tiller"
                         },
