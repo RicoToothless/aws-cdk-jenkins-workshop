@@ -5,13 +5,7 @@ from aws_cdk import (
     aws_eks as eks,
 )
 
-import yaml
-
-with open('kubernetes-resources/hello-k8s.yaml','r') as stream:
-    hello_k8s = list(yaml.safe_load_all(stream))
-
-with open('kubernetes-resources/helm-tiller-rbac.yaml','r') as stream:
-    helm_tiller_rbac = list(yaml.safe_load_all(stream))
+from load_yaml import *
 
 class EksClusterStack(core.Stack):
 
@@ -42,10 +36,10 @@ class EksClusterStack(core.Stack):
 
         helm_tiller_user = eks.KubernetesResource(self, 'helm-tiller-rbac',
             cluster=cluster,
-            manifest=helm_tiller_rbac
+            manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
         )
 
         k8s_app = eks.KubernetesResource(self, 'hello-k8s',
             cluster=cluster,
-            manifest=hello_k8s
+            manifest=read_k8s_resource('kubernetes-resources/hello-k8s.yaml')
         )
