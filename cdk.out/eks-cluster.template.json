@@ -1035,9 +1035,9 @@
     "helloeksmultiazworkernodeASG3CADF9A2": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
-        "MaxSize": "4",
+        "MaxSize": "2",
         "MinSize": "1",
-        "DesiredCapacity": "4",
+        "DesiredCapacity": "2",
         "LaunchConfigurationName": {
           "Ref": "helloeksmultiazworkernodeLaunchConfigC349055A"
         },
@@ -1130,6 +1130,23 @@
         "aws:cdk:path": "eks-cluster/hello-eks/AwsAuth/manifest/Resource/Default"
       }
     },
+    "helloeksmanifesthellok8s7F45D74E": {
+      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "helloeksKubernetesResourceHandler128A55B4",
+            "Arn"
+          ]
+        },
+        "Manifest": "[[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"type\":\"LoadBalancer\",\"ports\":[{\"port\":80,\"targetPort\":8080}],\"selector\":{\"app\":\"hello-kubernetes\"}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"hello-kubernetes\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"hello-kubernetes\"}},\"spec\":{\"containers\":[{\"name\":\"hello-kubernetes\",\"image\":\"paulbouwer/hello-kubernetes:1.5\",\"ports\":[{\"containerPort\":8080}]}]}}}}]]"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "eks-cluster/hello-eks/manifest-hello-k8s/Resource/Default"
+      }
+    },
     "helloeksmanifesthelmtiller657D9AA3": {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "Properties": {
@@ -1145,57 +1162,6 @@
       "DeletionPolicy": "Delete",
       "Metadata": {
         "aws:cdk:path": "eks-cluster/hello-eks/manifest-helm-tiller/Resource/Default"
-      }
-    },
-    "helloeksmanifestnodefrontendF7DAF002": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"ecsdemo-frontend\"},\"spec\":{\"selector\":{\"app\":\"ecsdemo-frontend\"},\"type\":\"LoadBalancer\",\"ports\":[{\"protocol\":\"TCP\",\"port\":80,\"targetPort\":3000}]}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"ecsdemo-frontend\",\"labels\":{\"app\":\"ecsdemo-frontend\"},\"namespace\":\"default\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"ecsdemo-frontend\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":\"25%\",\"maxUnavailable\":\"25%\"},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"ecsdemo-frontend\"}},\"spec\":{\"containers\":[{\"image\":\"brentley/ecsdemo-frontend:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"ecsdemo-frontend\",\"ports\":[{\"containerPort\":3000,\"protocol\":\"TCP\"}],\"env\":[{\"name\":\"CRYSTAL_URL\",\"value\":\"http://ecsdemo-crystal.default.svc.cluster.local/crystal\"},{\"name\":\"NODEJS_URL\",\"value\":\"http://ecsdemo-nodejs.default.svc.cluster.local/\"}]}]}}}}]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/manifest-node-frontend/Resource/Default"
-      }
-    },
-    "helloeksmanifestnode2C5F48AE": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"ecsdemo-nodejs\"},\"spec\":{\"selector\":{\"app\":\"ecsdemo-nodejs\"},\"ports\":[{\"protocol\":\"TCP\",\"port\":80,\"targetPort\":3000}]}},{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"ecsdemo-crystal\"},\"spec\":{\"selector\":{\"app\":\"ecsdemo-crystal\"},\"ports\":[{\"protocol\":\"TCP\",\"port\":80,\"targetPort\":3000}]}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"ecsdemo-nodejs\",\"labels\":{\"app\":\"ecsdemo-nodejs\"},\"namespace\":\"default\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"ecsdemo-nodejs\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":\"25%\",\"maxUnavailable\":\"25%\"},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"ecsdemo-nodejs\"}},\"spec\":{\"containers\":[{\"image\":\"brentley/ecsdemo-nodejs:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"ecsdemo-nodejs\",\"ports\":[{\"containerPort\":3000,\"protocol\":\"TCP\"}]}]}}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"ecsdemo-crystal\",\"labels\":{\"app\":\"ecsdemo-crystal\"},\"namespace\":\"default\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"ecsdemo-crystal\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":\"25%\",\"maxUnavailable\":\"25%\"},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"ecsdemo-crystal\"}},\"spec\":{\"containers\":[{\"image\":\"brentley/ecsdemo-crystal:latest\",\"imagePullPolicy\":\"Always\",\"name\":\"ecsdemo-crystal\",\"ports\":[{\"containerPort\":3000,\"protocol\":\"TCP\"}]}]}}}}]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/manifest-node/Resource/Default"
-      }
-    },
-    "helloeksmanifesthellokubernetes068CF0B0": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"type\":\"LoadBalancer\",\"ports\":[{\"port\":80,\"targetPort\":8080}],\"selector\":{\"app\":\"hello-kubernetes\"}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"hello-kubernetes\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"hello-kubernetes\"}},\"spec\":{\"containers\":[{\"name\":\"hello-kubernetes\",\"image\":\"paulbouwer/hello-kubernetes:1.5\",\"ports\":[{\"containerPort\":8080}]}]}}}}]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/manifest-hello-kubernetes/Resource/Default"
       }
     },
     "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": {
