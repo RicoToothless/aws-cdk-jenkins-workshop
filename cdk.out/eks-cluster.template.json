@@ -1130,40 +1130,6 @@
         "aws:cdk:path": "eks-cluster/hello-eks/AwsAuth/manifest/Resource/Default"
       }
     },
-    "helloeksmanifesthellok8s7F45D74E": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"type\":\"LoadBalancer\",\"ports\":[{\"port\":80,\"targetPort\":8080}],\"selector\":{\"app\":\"hello-kubernetes\"}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"hello-kubernetes\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"hello-kubernetes\"}},\"spec\":{\"containers\":[{\"name\":\"hello-kubernetes\",\"image\":\"paulbouwer/hello-kubernetes:1.5\",\"ports\":[{\"containerPort\":8080}]}]}}}}]]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/manifest-hello-k8s/Resource/Default"
-      }
-    },
-    "helloeksmanifesthelmtiller657D9AA3": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[{\"kind\":\"List\",\"apiVersion\":\"v1\",\"items\":[{\"kind\":\"ServiceAccount\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"tiller\",\"namespace\":\"kube-system\"}},{\"kind\":\"ClusterRoleBinding\",\"apiVersion\":\"rbac.authorization.k8s.io/v1beta1\",\"metadata\":{\"name\":\"tiller\"},\"subjects\":[{\"kind\":\"ServiceAccount\",\"name\":\"tiller\",\"namespace\":\"kube-system\"}],\"roleRef\":{\"apiGroup\":\"rbac.authorization.k8s.io\",\"kind\":\"ClusterRole\",\"name\":\"cluster-admin\"}}]}]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/manifest-helm-tiller/Resource/Default"
-      }
-    },
     "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": {
       "Type": "AWS::Serverless::Application",
       "Properties": {
@@ -1197,6 +1163,40 @@
       },
       "Metadata": {
         "aws:cdk:path": "eks-cluster/AdminRole/Resource"
+      }
+    },
+    "helmtillerrbac268D8979": {
+      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "helloeksKubernetesResourceHandler128A55B4",
+            "Arn"
+          ]
+        },
+        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"ServiceAccount\",\"metadata\":{\"name\":\"tiller\",\"namespace\":\"kube-system\"}},{\"apiVersion\":\"rbac.authorization.k8s.io/v1beta1\",\"kind\":\"ClusterRoleBinding\",\"metadata\":{\"name\":\"tiller\"},\"roleRef\":{\"apiGroup\":\"rbac.authorization.k8s.io\",\"kind\":\"ClusterRole\",\"name\":\"cluster-admin\"},\"subjects\":[{\"kind\":\"ServiceAccount\",\"name\":\"tiller\",\"namespace\":\"kube-system\"}]}]"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "eks-cluster/helm-tiller-rbac/Resource/Default"
+      }
+    },
+    "hellok8sAFD9A2A7": {
+      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "helloeksKubernetesResourceHandler128A55B4",
+            "Arn"
+          ]
+        },
+        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"type\":\"LoadBalancer\",\"ports\":[{\"port\":80,\"targetPort\":8080}],\"selector\":{\"app\":\"hello-kubernetes\"}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"hello-kubernetes\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"hello-kubernetes\"}},\"spec\":{\"containers\":[{\"name\":\"hello-kubernetes\",\"image\":\"paulbouwer/hello-kubernetes:1.5\",\"ports\":[{\"containerPort\":8080}]}]}}}}]"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "eks-cluster/hello-k8s/Resource/Default"
       }
     }
   },

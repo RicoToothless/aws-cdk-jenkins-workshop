@@ -5,6 +5,14 @@ from aws_cdk import (
     aws_eks as eks,
 )
 
+import yaml
+
+with open('kubernetes-resources/hello-k8s.yaml','r') as stream:
+    hello_k8s = list(yaml.safe_load_all(stream))
+
+with open('kubernetes-resources/helm-tiller-rbac.yaml','r') as stream:
+    helm_tiller_rbac = list(yaml.safe_load_all(stream))
+
 class EksClusterStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
@@ -32,41 +40,12 @@ class EksClusterStack(core.Stack):
 
         cluster.aws_auth.add_masters_role(eks_master_role)
 
-        cluster.add_resource('hello-k8s',
+        helm_tiller_user = eks.KubernetesResource(self, 'helm-tiller-rbac',
+            cluster=cluster,
+            manifest=helm_tiller_rbac
         )
 
-        cluster.add_resource('helm-tiller',
-            {
-                "kind": "List",
-                "apiVersion": "v1",
-                "items": [
-                    {
-                        "kind": "ServiceAccount",
-                        "apiVersion": "v1",
-                        "metadata": {
-                            "name": "tiller",
-                            "namespace": "kube-system"
-                        }
-                    },
-                    {
-                        "kind": "ClusterRoleBinding",
-                        "apiVersion": "rbac.authorization.k8s.io/v1beta1",
-                        "metadata": {
-                            "name": "tiller"
-                        },
-                        "subjects": [
-                            {
-                                "kind": "ServiceAccount",
-                                "name": "tiller",
-                                "namespace": "kube-system"
-                            }
-                        ],
-                        "roleRef": {
-                            "apiGroup": "rbac.authorization.k8s.io",
-                            "kind": "ClusterRole",
-                            "name": "cluster-admin"
-                        }
-                    }
-                ]
-            }
+        k8s_app = eks.KubernetesResource(self, 'hello-k8s',
+            cluster=cluster,
+            manifest=hello_k8s
         )
