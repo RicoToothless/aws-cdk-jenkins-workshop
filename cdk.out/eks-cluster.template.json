@@ -1,463 +1,7 @@
 {
   "Transform": "AWS::Serverless-2016-10-31",
   "Resources": {
-    "eksvpc24660B53": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "10.66.0.0/16",
-        "EnableDnsHostnames": true,
-        "EnableDnsSupport": true,
-        "InstanceTenancy": "default",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/Resource"
-      }
-    },
-    "eksvpcPublicSubnet1Subnet3296CB2F": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "10.66.0.0/18",
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
-        "MapPublicIpOnLaunch": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet1"
-          },
-          {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Public"
-          },
-          {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Public"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/Subnet"
-      }
-    },
-    "eksvpcPublicSubnet1RouteTableF37EEED3": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/RouteTable"
-      }
-    },
-    "eksvpcPublicSubnet1RouteTableAssociationADF6F2E2": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPublicSubnet1RouteTableF37EEED3"
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPublicSubnet1Subnet3296CB2F"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/RouteTableAssociation"
-      }
-    },
-    "eksvpcPublicSubnet1DefaultRouteD772DADC": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPublicSubnet1RouteTableF37EEED3"
-        },
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": {
-          "Ref": "eksvpcIGW46170B07"
-        }
-      },
-      "DependsOn": [
-        "eksvpcVPCGW02894A73"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/DefaultRoute"
-      }
-    },
-    "eksvpcPublicSubnet1EIP7EB80759": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-        "Domain": "vpc"
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/EIP"
-      }
-    },
-    "eksvpcPublicSubnet1NATGateway153E5069": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-        "AllocationId": {
-          "Fn::GetAtt": [
-            "eksvpcPublicSubnet1EIP7EB80759",
-            "AllocationId"
-          ]
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPublicSubnet1Subnet3296CB2F"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet1/NATGateway"
-      }
-    },
-    "eksvpcPublicSubnet2Subnet9EED4A0A": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "10.66.64.0/18",
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
-        "MapPublicIpOnLaunch": true,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet2"
-          },
-          {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Public"
-          },
-          {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Public"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/Subnet"
-      }
-    },
-    "eksvpcPublicSubnet2RouteTableB641DCEC": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet2"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/RouteTable"
-      }
-    },
-    "eksvpcPublicSubnet2RouteTableAssociationA2A87377": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPublicSubnet2RouteTableB641DCEC"
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPublicSubnet2Subnet9EED4A0A"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/RouteTableAssociation"
-      }
-    },
-    "eksvpcPublicSubnet2DefaultRouteF81B1B36": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPublicSubnet2RouteTableB641DCEC"
-        },
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": {
-          "Ref": "eksvpcIGW46170B07"
-        }
-      },
-      "DependsOn": [
-        "eksvpcVPCGW02894A73"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/DefaultRoute"
-      }
-    },
-    "eksvpcPublicSubnet2EIP828F8DB8": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-        "Domain": "vpc"
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/EIP"
-      }
-    },
-    "eksvpcPublicSubnet2NATGateway85B88D82": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-        "AllocationId": {
-          "Fn::GetAtt": [
-            "eksvpcPublicSubnet2EIP828F8DB8",
-            "AllocationId"
-          ]
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPublicSubnet2Subnet9EED4A0A"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PublicSubnet2"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PublicSubnet2/NATGateway"
-      }
-    },
-    "eksvpcPrivateSubnet1SubnetC68093F9": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "10.66.128.0/18",
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            0,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
-        "MapPublicIpOnLaunch": false,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PrivateSubnet1"
-          },
-          {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Private"
-          },
-          {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Private"
-          },
-          {
-            "Key": "kubernetes.io/role/internal-elb",
-            "Value": "1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet1/Subnet"
-      }
-    },
-    "eksvpcPrivateSubnet1RouteTableDD7E43E1": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PrivateSubnet1"
-          },
-          {
-            "Key": "kubernetes.io/role/internal-elb",
-            "Value": "1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet1/RouteTable"
-      }
-    },
-    "eksvpcPrivateSubnet1RouteTableAssociationFA4CC104": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPrivateSubnet1RouteTableDD7E43E1"
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPrivateSubnet1SubnetC68093F9"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet1/RouteTableAssociation"
-      }
-    },
-    "eksvpcPrivateSubnet1DefaultRouteEE4DE5DB": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPrivateSubnet1RouteTableDD7E43E1"
-        },
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": {
-          "Ref": "eksvpcPublicSubnet1NATGateway153E5069"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet1/DefaultRoute"
-      }
-    },
-    "eksvpcPrivateSubnet2Subnet7E2981CD": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "CidrBlock": "10.66.192.0/18",
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "AvailabilityZone": {
-          "Fn::Select": [
-            1,
-            {
-              "Fn::GetAZs": ""
-            }
-          ]
-        },
-        "MapPublicIpOnLaunch": false,
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PrivateSubnet2"
-          },
-          {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Private"
-          },
-          {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Private"
-          },
-          {
-            "Key": "kubernetes.io/role/internal-elb",
-            "Value": "1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet2/Subnet"
-      }
-    },
-    "eksvpcPrivateSubnet2RouteTable0618F58A": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc/PrivateSubnet2"
-          },
-          {
-            "Key": "kubernetes.io/role/internal-elb",
-            "Value": "1"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet2/RouteTable"
-      }
-    },
-    "eksvpcPrivateSubnet2RouteTableAssociationD4ECB43E": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPrivateSubnet2RouteTable0618F58A"
-        },
-        "SubnetId": {
-          "Ref": "eksvpcPrivateSubnet2Subnet7E2981CD"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet2/RouteTableAssociation"
-      }
-    },
-    "eksvpcPrivateSubnet2DefaultRouteE6603F70": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-        "RouteTableId": {
-          "Ref": "eksvpcPrivateSubnet2RouteTable0618F58A"
-        },
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": {
-          "Ref": "eksvpcPublicSubnet2NATGateway85B88D82"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/PrivateSubnet2/DefaultRoute"
-      }
-    },
-    "eksvpcIGW46170B07": {
-      "Type": "AWS::EC2::InternetGateway",
-      "Properties": {
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "eks-cluster/eks-vpc"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/IGW"
-      }
-    },
-    "eksvpcVPCGW02894A73": {
-      "Type": "AWS::EC2::VPCGatewayAttachment",
-      "Properties": {
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        },
-        "InternetGatewayId": {
-          "Ref": "eksvpcIGW46170B07"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-vpc/VPCGW"
-      }
-    },
-    "helloeksClusterRole683D700A": {
+    "ekssitClusterRole441C1D1A": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -500,10 +44,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/ClusterRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/ClusterRole/Resource"
       }
     },
-    "helloeksControlPlaneSecurityGroup4C2AFE28": {
+    "ekssitControlPlaneSecurityGroupFA4498DF": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
         "GroupDescription": "EKS Control Plane Security Group",
@@ -514,39 +58,37 @@
             "IpProtocol": "-1"
           }
         ],
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        }
+        "VpcId": "vpc-04d93a30b262b42a4"
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/ControlPlaneSecurityGroup/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/ControlPlaneSecurityGroup/Resource"
       }
     },
-    "helloeksControlPlaneSecurityGroupfromeksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486443CBE4233C": {
+    "ekssitControlPlaneSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E60034436FF83D65": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486:443",
+        "Description": "from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:443",
         "FromPort": 443,
         "GroupId": {
           "Fn::GetAtt": [
-            "helloeksControlPlaneSecurityGroup4C2AFE28",
+            "ekssitControlPlaneSecurityGroupFA4498DF",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+            "ekssitworkernodeInstanceSecurityGroup0DB93086",
             "GroupId"
           ]
         },
         "ToPort": 443
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/ControlPlaneSecurityGroup/from eksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486:443"
+        "aws:cdk:path": "eks-cluster/eks-sit/ControlPlaneSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:443"
       }
     },
-    "helloeksResourceHandlerServiceRole9A7706B4": {
+    "ekssitResourceHandlerServiceRoleDC3869B1": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -577,10 +119,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/Resource/ResourceHandler/ServiceRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/Resource"
       }
     },
-    "helloeksResourceHandlerServiceRoleDefaultPolicyF96EC655": {
+    "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -599,7 +141,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "helloeksClusterRole683D700A",
+                  "ekssitClusterRole441C1D1A",
                   "Arn"
                 ]
               }
@@ -607,23 +149,23 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "helloeksResourceHandlerServiceRoleDefaultPolicyF96EC655",
+        "PolicyName": "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
         "Roles": [
           {
-            "Ref": "helloeksResourceHandlerServiceRole9A7706B4"
+            "Ref": "ekssitResourceHandlerServiceRoleDC3869B1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource"
       }
     },
-    "helloeksResourceHandler30329491": {
+    "ekssitResourceHandler2659A06A": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "helloeksResourceHandlerCodeS3BucketF07AC7AF"
+            "Ref": "ekssitResourceHandlerCodeS3Bucket760DF1FC"
           },
           "S3Key": {
             "Fn::Join": [
@@ -636,7 +178,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "helloeksResourceHandlerCodeS3VersionKey60D4A875"
+                          "Ref": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2"
                         }
                       ]
                     }
@@ -649,7 +191,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "helloeksResourceHandlerCodeS3VersionKey60D4A875"
+                          "Ref": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2"
                         }
                       ]
                     }
@@ -662,7 +204,7 @@
         "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
-            "helloeksResourceHandlerServiceRole9A7706B4",
+            "ekssitResourceHandlerServiceRoleDC3869B1",
             "Arn"
           ]
         },
@@ -679,28 +221,28 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "helloeksResourceHandlerServiceRoleDefaultPolicyF96EC655",
-        "helloeksResourceHandlerServiceRole9A7706B4"
+        "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
+        "ekssitResourceHandlerServiceRoleDC3869B1"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/Resource/ResourceHandler/Resource",
+        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/Resource",
         "aws:asset:path": "asset.c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128",
         "aws:asset:property": "Code"
       }
     },
-    "helloeks5A23CE00": {
+    "ekssit1D172432": {
       "Type": "Custom::AWSCDK-EKS-Cluster",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "helloeksResourceHandler30329491",
+            "ekssitResourceHandler2659A06A",
             "Arn"
           ]
         },
         "Config": {
           "roleArn": {
             "Fn::GetAtt": [
-              "helloeksClusterRole683D700A",
+              "ekssitClusterRole441C1D1A",
               "Arn"
             ]
           },
@@ -708,24 +250,16 @@
             "securityGroupIds": [
               {
                 "Fn::GetAtt": [
-                  "helloeksControlPlaneSecurityGroup4C2AFE28",
+                  "ekssitControlPlaneSecurityGroupFA4498DF",
                   "GroupId"
                 ]
               }
             ],
             "subnetIds": [
-              {
-                "Ref": "eksvpcPublicSubnet1Subnet3296CB2F"
-              },
-              {
-                "Ref": "eksvpcPublicSubnet2Subnet9EED4A0A"
-              },
-              {
-                "Ref": "eksvpcPrivateSubnet1SubnetC68093F9"
-              },
-              {
-                "Ref": "eksvpcPrivateSubnet2Subnet7E2981CD"
-              }
+              "subnet-0be5a79226e88b212",
+              "subnet-0eb56395eb0ce93d7",
+              "subnet-098316d30b314b222",
+              "subnet-0e6472be22b5e0d3a"
             ]
           }
         }
@@ -733,15 +267,15 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/Resource/Resource/Default"
+        "aws:cdk:path": "eks-cluster/eks-sit/Resource/Resource/Default"
       }
     },
-    "helloeksKubernetesResourceHandler128A55B4": {
+    "ekssitKubernetesResourceHandler70DBC094": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "helloeksKubernetesResourceHandlerCodeS3Bucket7A00C5B5"
+            "Ref": "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656"
           },
           "S3Key": {
             "Fn::Join": [
@@ -754,7 +288,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "helloeksKubernetesResourceHandlerCodeS3VersionKey690D0F65"
+                          "Ref": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905"
                         }
                       ]
                     }
@@ -767,7 +301,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "helloeksKubernetesResourceHandlerCodeS3VersionKey690D0F65"
+                          "Ref": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905"
                         }
                       ]
                     }
@@ -780,7 +314,7 @@
         "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
-            "helloeksResourceHandlerServiceRole9A7706B4",
+            "ekssitResourceHandlerServiceRoleDC3869B1",
             "Arn"
           ]
         },
@@ -788,7 +322,7 @@
         "Environment": {
           "Variables": {
             "CLUSTER_NAME": {
-              "Ref": "helloeks5A23CE00"
+              "Ref": "ekssit1D172432"
             }
           }
         },
@@ -804,19 +338,19 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "helloeksResourceHandlerServiceRoleDefaultPolicyF96EC655",
-        "helloeksResourceHandlerServiceRole9A7706B4"
+        "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
+        "ekssitResourceHandlerServiceRoleDC3869B1"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/KubernetesResourceHandler/Resource",
+        "aws:cdk:path": "eks-cluster/eks-sit/KubernetesResourceHandler/Resource",
         "aws:asset:path": "asset.640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444",
         "aws:asset:property": "Code"
       }
     },
-    "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1": {
+    "ekssitworkernodeInstanceSecurityGroup0DB93086": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "eks-cluster/hello-eks/multi-az-worker-node/InstanceSecurityGroup",
+        "GroupDescription": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup",
         "SecurityGroupEgress": [
           {
             "CidrIp": "0.0.0.0/0",
@@ -827,7 +361,7 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "eks-cluster/hello-eks/multi-az-worker-node"
+            "Value": "eks-cluster/eks-sit/worker-node"
           },
           {
             "Key": {
@@ -836,7 +370,7 @@
                 [
                   "kubernetes.io/cluster/",
                   {
-                    "Ref": "helloeks5A23CE00"
+                    "Ref": "ekssit1D172432"
                   }
                 ]
               ]
@@ -844,85 +378,83 @@
             "Value": "owned"
           }
         ],
-        "VpcId": {
-          "Ref": "eksvpc24660B53"
-        }
+        "VpcId": "vpc-04d93a30b262b42a4"
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceSecurityGroup/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/Resource"
       }
     },
-    "helloeksmultiazworkernodeInstanceSecurityGroupfromeksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486ALLTRAFFICD4309B2F": {
+    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E6003ALLTRAFFIC763C4B30": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "-1",
-        "Description": "from eksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486:ALL TRAFFIC",
+        "Description": "from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:ALL TRAFFIC",
         "GroupId": {
           "Fn::GetAtt": [
-            "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+            "ekssitworkernodeInstanceSecurityGroup0DB93086",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+            "ekssitworkernodeInstanceSecurityGroup0DB93086",
             "GroupId"
           ]
         }
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceSecurityGroup/from eksclusterhelloeksmultiazworkernodeInstanceSecurityGroupA7F3C486:ALL TRAFFIC"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:ALL TRAFFIC"
       }
     },
-    "helloeksmultiazworkernodeInstanceSecurityGroupfromeksclusterhelloeksControlPlaneSecurityGroup664A7CCF4430F181F1E": {
+    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F44371AE32C6": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterhelloeksControlPlaneSecurityGroup664A7CCF:443",
+        "Description": "from eksclusterekssitControlPlaneSecurityGroupEA76089F:443",
         "FromPort": 443,
         "GroupId": {
           "Fn::GetAtt": [
-            "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+            "ekssitworkernodeInstanceSecurityGroup0DB93086",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "helloeksControlPlaneSecurityGroup4C2AFE28",
+            "ekssitControlPlaneSecurityGroupFA4498DF",
             "GroupId"
           ]
         },
         "ToPort": 443
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceSecurityGroup/from eksclusterhelloeksControlPlaneSecurityGroup664A7CCF:443"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:443"
       }
     },
-    "helloeksmultiazworkernodeInstanceSecurityGroupfromeksclusterhelloeksControlPlaneSecurityGroup664A7CCF102565535C8DE6E17": {
+    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F1025655350DF3E6E3": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterhelloeksControlPlaneSecurityGroup664A7CCF:1025-65535",
+        "Description": "from eksclusterekssitControlPlaneSecurityGroupEA76089F:1025-65535",
         "FromPort": 1025,
         "GroupId": {
           "Fn::GetAtt": [
-            "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+            "ekssitworkernodeInstanceSecurityGroup0DB93086",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "helloeksControlPlaneSecurityGroup4C2AFE28",
+            "ekssitControlPlaneSecurityGroupFA4498DF",
             "GroupId"
           ]
         },
         "ToPort": 65535
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceSecurityGroup/from eksclusterhelloeksControlPlaneSecurityGroup664A7CCF:1025-65535"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:1025-65535"
       }
     },
-    "helloeksmultiazworkernodeInstanceRole70479645": {
+    "ekssitworkernodeInstanceRoleA484A457": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -977,35 +509,35 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceRole/Resource"
       }
     },
-    "helloeksmultiazworkernodeInstanceProfile6C27C294": {
+    "ekssitworkernodeInstanceProfileBA8EA190": {
       "Type": "AWS::IAM::InstanceProfile",
       "Properties": {
         "Roles": [
           {
-            "Ref": "helloeksmultiazworkernodeInstanceRole70479645"
+            "Ref": "ekssitworkernodeInstanceRoleA484A457"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/InstanceProfile"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceProfile"
       }
     },
-    "helloeksmultiazworkernodeLaunchConfigC349055A": {
+    "ekssitworkernodeLaunchConfig1B30F35C": {
       "Type": "AWS::AutoScaling::LaunchConfiguration",
       "Properties": {
         "ImageId": "ami-07fd7609df6c8e39b",
         "InstanceType": "t3.small",
         "IamInstanceProfile": {
-          "Ref": "helloeksmultiazworkernodeInstanceProfile6C27C294"
+          "Ref": "ekssitworkernodeInstanceProfileBA8EA190"
         },
         "KeyName": "k8s-lab",
         "SecurityGroups": [
           {
             "Fn::GetAtt": [
-              "helloeksmultiazworkernodeInstanceSecurityGroup55F9BCE1",
+              "ekssitworkernodeInstanceSecurityGroup0DB93086",
               "GroupId"
             ]
           }
@@ -1017,7 +549,7 @@
               [
                 "#!/bin/bash\nset -o xtrace\n/etc/eks/bootstrap.sh ",
                 {
-                  "Ref": "helloeks5A23CE00"
+                  "Ref": "ekssit1D172432"
                 },
                 " --use-max-pods 11"
               ]
@@ -1026,26 +558,26 @@
         }
       },
       "DependsOn": [
-        "helloeksmultiazworkernodeInstanceRole70479645"
+        "ekssitworkernodeInstanceRoleA484A457"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/LaunchConfig"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/LaunchConfig"
       }
     },
-    "helloeksmultiazworkernodeASG3CADF9A2": {
+    "ekssitworkernodeASGBDD0FCFF": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
         "MaxSize": "2",
         "MinSize": "1",
         "DesiredCapacity": "2",
         "LaunchConfigurationName": {
-          "Ref": "helloeksmultiazworkernodeLaunchConfigC349055A"
+          "Ref": "ekssitworkernodeLaunchConfig1B30F35C"
         },
         "Tags": [
           {
             "Key": "Name",
             "PropagateAtLaunch": true,
-            "Value": "eks-cluster/hello-eks/multi-az-worker-node"
+            "Value": "eks-cluster/eks-sit/worker-node"
           },
           {
             "Key": {
@@ -1054,7 +586,7 @@
                 [
                   "kubernetes.io/cluster/",
                   {
-                    "Ref": "helloeks5A23CE00"
+                    "Ref": "ekssit1D172432"
                   }
                 ]
               ]
@@ -1064,12 +596,8 @@
           }
         ],
         "VPCZoneIdentifier": [
-          {
-            "Ref": "eksvpcPrivateSubnet1SubnetC68093F9"
-          },
-          {
-            "Ref": "eksvpcPrivateSubnet2Subnet7E2981CD"
-          }
+          "subnet-098316d30b314b222",
+          "subnet-0e6472be22b5e0d3a"
         ]
       },
       "UpdatePolicy": {
@@ -1089,15 +617,15 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/multi-az-worker-node/ASG"
+        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/ASG"
       }
     },
-    "helloeksAwsAuthmanifest12726185": {
+    "ekssitAwsAuthmanifestD6105016": {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
+            "ekssitKubernetesResourceHandler70DBC094",
             "Arn"
           ]
         },
@@ -1108,7 +636,7 @@
               "[{\"apiVersion\":\"v1\",\"kind\":\"ConfigMap\",\"metadata\":{\"name\":\"aws-auth\",\"namespace\":\"kube-system\"},\"data\":{\"mapRoles\":\"[{\\\"rolearn\\\":\\\"",
               {
                 "Fn::GetAtt": [
-                  "helloeksmultiazworkernodeInstanceRole70479645",
+                  "ekssitworkernodeInstanceRoleA484A457",
                   "Arn"
                 ]
               },
@@ -1127,7 +655,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-eks/AwsAuth/manifest/Resource/Default"
+        "aws:cdk:path": "eks-cluster/eks-sit/AwsAuth/manifest/Resource/Default"
       }
     },
     "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": {
@@ -1170,7 +698,7 @@
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
+            "ekssitKubernetesResourceHandler70DBC094",
             "Arn"
           ]
         },
@@ -1181,60 +709,43 @@
       "Metadata": {
         "aws:cdk:path": "eks-cluster/helm-tiller-rbac/Resource/Default"
       }
-    },
-    "hellok8sAFD9A2A7": {
-      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
-      "Properties": {
-        "ServiceToken": {
-          "Fn::GetAtt": [
-            "helloeksKubernetesResourceHandler128A55B4",
-            "Arn"
-          ]
-        },
-        "Manifest": "[{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"type\":\"LoadBalancer\",\"ports\":[{\"port\":80,\"targetPort\":8080}],\"selector\":{\"app\":\"hello-kubernetes\"}}},{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"name\":\"hello-kubernetes\"},\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"hello-kubernetes\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"hello-kubernetes\"}},\"spec\":{\"containers\":[{\"name\":\"hello-kubernetes\",\"image\":\"paulbouwer/hello-kubernetes:1.5\",\"ports\":[{\"containerPort\":8080}]}]}}}}]"
-      },
-      "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "eks-cluster/hello-k8s/Resource/Default"
-      }
     }
   },
   "Parameters": {
-    "helloeksResourceHandlerCodeS3BucketF07AC7AF": {
+    "ekssitResourceHandlerCodeS3Bucket760DF1FC": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"eks-cluster/hello-eks/Resource/ResourceHandler/Code\""
+      "Description": "S3 bucket for asset \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
     },
-    "helloeksResourceHandlerCodeS3VersionKey60D4A875": {
+    "ekssitResourceHandlerCodeS3VersionKeyEE8277B2": {
       "Type": "String",
-      "Description": "S3 key for asset version \"eks-cluster/hello-eks/Resource/ResourceHandler/Code\""
+      "Description": "S3 key for asset version \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
     },
-    "helloeksResourceHandlerCodeArtifactHash384DC267": {
+    "ekssitResourceHandlerCodeArtifactHashA81B6180": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"eks-cluster/hello-eks/Resource/ResourceHandler/Code\""
+      "Description": "Artifact hash for asset \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
     },
-    "helloeksKubernetesResourceHandlerCodeS3Bucket7A00C5B5": {
+    "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"eks-cluster/hello-eks/KubernetesResourceHandler/Code\""
+      "Description": "S3 bucket for asset \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
     },
-    "helloeksKubernetesResourceHandlerCodeS3VersionKey690D0F65": {
+    "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905": {
       "Type": "String",
-      "Description": "S3 key for asset version \"eks-cluster/hello-eks/KubernetesResourceHandler/Code\""
+      "Description": "S3 key for asset version \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
     },
-    "helloeksKubernetesResourceHandlerCodeArtifactHash1FBE1382": {
+    "ekssitKubernetesResourceHandlerCodeArtifactHash0FDC37CC": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"eks-cluster/hello-eks/KubernetesResourceHandler/Code\""
+      "Description": "Artifact hash for asset \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
     }
   },
   "Outputs": {
-    "helloeksConfigCommand9213DBDB": {
+    "ekssitConfigCommandE7882BC7": {
       "Value": {
         "Fn::Join": [
           "",
           [
             "aws eks update-kubeconfig --name ",
             {
-              "Ref": "helloeks5A23CE00"
+              "Ref": "ekssit1D172432"
             }
           ]
         ]

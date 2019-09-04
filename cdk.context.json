@@ -1,0 +1,36 @@
+{
+  "vpc-provider:account=628531345753:filter.tag:Name=vpc-stack/eks-vpc:region=ap-northeast-2": {
+    "vpcId": "vpc-04d93a30b262b42a4",
+    "availabilityZones": [
+      "ap-northeast-2a",
+      "ap-northeast-2b"
+    ],
+    "privateSubnetIds": [
+      "subnet-098316d30b314b222",
+      "subnet-0e6472be22b5e0d3a"
+    ],
+    "privateSubnetNames": [
+      "Application"
+    ],
+    "privateSubnetRouteTableIds": [
+      "rtb-0e70ab989b649a240",
+      "rtb-0433e6bf1a985de08"
+    ],
+    "publicSubnetIds": [
+      "subnet-0be5a79226e88b212",
+      "subnet-0eb56395eb0ce93d7"
+    ],
+    "publicSubnetNames": [
+      "Ingress"
+    ],
+    "publicSubnetRouteTableIds": [
+      "rtb-05d377a5962791ccf",
+      "rtb-0fe3bb36c16e29e23"
+    ]
+  },
+  "availability-zones:account=628531345753:region=ap-northeast-2": [
+    "ap-northeast-2a",
+    "ap-northeast-2b",
+    "ap-northeast-2c"
+  ]
+}

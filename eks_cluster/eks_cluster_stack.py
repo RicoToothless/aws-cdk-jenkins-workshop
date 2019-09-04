@@ -12,17 +12,16 @@ class EksClusterStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        eks_vpc = ec2.Vpc(self, 'eks-vpc',
-            cidr='10.66.0.0/16',
-            max_azs=2
+        eks_vpc = ec2.Vpc.from_lookup(self, 'eks-vpc',
+            vpc_name=f'vpc-stack/eks-vpc'
         )
 
-        cluster = eks.Cluster(self, 'hello-eks',
+        cluster = eks.Cluster(self, 'eks-sit',
             vpc=eks_vpc,
             default_capacity=0
         )
 
-        cluster.add_capacity('multi-az-worker-node',
+        cluster.add_capacity('worker-node',
             instance_type=ec2.InstanceType('t3.small'),
             desired_capacity=2,
             key_name='k8s-lab'

@@ -1,0 +1,416 @@
+{
+  "Resources": {
+    "eksvpc24660B53": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.1.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/Resource"
+      }
+    },
+    "eksvpcIngressSubnet1SubnetD6CEC90F": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.1.0.0/20",
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "AvailabilityZone": "ap-northeast-2a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet1"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Ingress"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/Subnet"
+      }
+    },
+    "eksvpcIngressSubnet1RouteTableF24F9BB4": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/RouteTable"
+      }
+    },
+    "eksvpcIngressSubnet1RouteTableAssociation74863BF6": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcIngressSubnet1RouteTableF24F9BB4"
+        },
+        "SubnetId": {
+          "Ref": "eksvpcIngressSubnet1SubnetD6CEC90F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/RouteTableAssociation"
+      }
+    },
+    "eksvpcIngressSubnet1DefaultRouteA119ADD0": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcIngressSubnet1RouteTableF24F9BB4"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "eksvpcIGW46170B07"
+        }
+      },
+      "DependsOn": [
+        "eksvpcVPCGW02894A73"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/DefaultRoute"
+      }
+    },
+    "eksvpcIngressSubnet1EIP3145C77B": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/EIP"
+      }
+    },
+    "eksvpcIngressSubnet1NATGateway0E02DAC6": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "eksvpcIngressSubnet1EIP3145C77B",
+            "AllocationId"
+          ]
+        },
+        "SubnetId": {
+          "Ref": "eksvpcIngressSubnet1SubnetD6CEC90F"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet1/NATGateway"
+      }
+    },
+    "eksvpcIngressSubnet2Subnet4C7DA152": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.1.16.0/20",
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "AvailabilityZone": "ap-northeast-2b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet2"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Ingress"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/Subnet"
+      }
+    },
+    "eksvpcIngressSubnet2RouteTable5AC828E8": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/RouteTable"
+      }
+    },
+    "eksvpcIngressSubnet2RouteTableAssociationB99A8E22": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcIngressSubnet2RouteTable5AC828E8"
+        },
+        "SubnetId": {
+          "Ref": "eksvpcIngressSubnet2Subnet4C7DA152"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/RouteTableAssociation"
+      }
+    },
+    "eksvpcIngressSubnet2DefaultRoute5B78E619": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcIngressSubnet2RouteTable5AC828E8"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "eksvpcIGW46170B07"
+        }
+      },
+      "DependsOn": [
+        "eksvpcVPCGW02894A73"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/DefaultRoute"
+      }
+    },
+    "eksvpcIngressSubnet2EIPD5D75DEE": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/EIP"
+      }
+    },
+    "eksvpcIngressSubnet2NATGatewayBCD1DED2": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "eksvpcIngressSubnet2EIPD5D75DEE",
+            "AllocationId"
+          ]
+        },
+        "SubnetId": {
+          "Ref": "eksvpcIngressSubnet2Subnet4C7DA152"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/IngressSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IngressSubnet2/NATGateway"
+      }
+    },
+    "eksvpcApplicationSubnet1SubnetA0425106": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.1.32.0/20",
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "AvailabilityZone": "ap-northeast-2a",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/ApplicationSubnet1"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Application"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet1/Subnet"
+      }
+    },
+    "eksvpcApplicationSubnet1RouteTable297584EA": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/ApplicationSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet1/RouteTable"
+      }
+    },
+    "eksvpcApplicationSubnet1RouteTableAssociation530F3C05": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcApplicationSubnet1RouteTable297584EA"
+        },
+        "SubnetId": {
+          "Ref": "eksvpcApplicationSubnet1SubnetA0425106"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet1/RouteTableAssociation"
+      }
+    },
+    "eksvpcApplicationSubnet1DefaultRoute41B4EF3A": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcApplicationSubnet1RouteTable297584EA"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "eksvpcIngressSubnet1NATGateway0E02DAC6"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet1/DefaultRoute"
+      }
+    },
+    "eksvpcApplicationSubnet2Subnet7D42A256": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.1.48.0/20",
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "AvailabilityZone": "ap-northeast-2b",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/ApplicationSubnet2"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Application"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet2/Subnet"
+      }
+    },
+    "eksvpcApplicationSubnet2RouteTable6574E1C7": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc/ApplicationSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet2/RouteTable"
+      }
+    },
+    "eksvpcApplicationSubnet2RouteTableAssociation3ADC12F1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcApplicationSubnet2RouteTable6574E1C7"
+        },
+        "SubnetId": {
+          "Ref": "eksvpcApplicationSubnet2Subnet7D42A256"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet2/RouteTableAssociation"
+      }
+    },
+    "eksvpcApplicationSubnet2DefaultRoute7F784DAF": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "eksvpcApplicationSubnet2RouteTable6574E1C7"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "eksvpcIngressSubnet2NATGatewayBCD1DED2"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/ApplicationSubnet2/DefaultRoute"
+      }
+    },
+    "eksvpcIGW46170B07": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "vpc-stack/eks-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/IGW"
+      }
+    },
+    "eksvpcVPCGW02894A73": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "eksvpc24660B53"
+        },
+        "InternetGatewayId": {
+          "Ref": "eksvpcIGW46170B07"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "vpc-stack/eks-vpc/VPCGW"
+      }
+    }
+  }
+}
