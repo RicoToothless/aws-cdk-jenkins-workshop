@@ -34,12 +34,7 @@ class EksClusterStack(core.Stack):
 
         cluster.aws_auth.add_masters_role(eks_master_role)
 
-        helm_tiller_user = eks.KubernetesResource(self, 'helm-tiller-rbac',
+        eks.KubernetesResource(self, 'helm-tiller-rbac',
             cluster=cluster,
             manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
-        )
-
-        k8s_app = eks.KubernetesResource(self, 'hello-k8s',
-            cluster=cluster,
-            manifest=read_k8s_resource('kubernetes-resources/hello-k8s.yaml')
         )
