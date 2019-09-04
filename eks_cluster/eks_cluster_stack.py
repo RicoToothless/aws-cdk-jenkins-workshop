@@ -7,16 +7,16 @@ from aws_cdk import (
 
 from load_yaml import *
 
-class EksClusterStack(core.Stack):
+class EksSitClusterStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
         eks_vpc = ec2.Vpc.from_lookup(self, 'eks-vpc',
-            vpc_name=f'vpc-stack/eks-vpc'
+            vpc_name='vpc-stack/eks-vpc'
         )
 
-        cluster = eks.Cluster(self, 'eks-sit',
+        cluster = eks.Cluster(self, 'eks-control-plane',
             vpc=eks_vpc,
             default_capacity=0
         )

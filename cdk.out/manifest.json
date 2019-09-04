@@ -7,15 +7,18 @@
       "properties": {
         "templateFile": "eks-cluster.template.json"
       },
+      "dependencies": [
+        "vpc-stack"
+      ],
       "metadata": {
-        "/eks-cluster/eks-sit": [
+        "/eks-cluster/eks-control-plane": [
           {
             "type": "aws:cdk:warning",
             "data": "Could not auto-tag private subnets with \"kubernetes.io/role/internal-elb=1\", please remember to do this manually",
             "trace": [
-              "ConstructNode.addWarning (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/core/lib/construct.js:276:14)",
-              "Cluster.tagSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:262:27)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:50:14)",
+              "ConstructNode.addWarning (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/core/lib/construct.js:276:14)",
+              "Cluster.tagSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:262:27)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:50:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -36,13 +39,13 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/ClusterRole/Resource": [
+        "/eks-cluster/eks-control-plane/ClusterRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitClusterRole441C1D1A",
+            "data": "ekscontrolplaneClusterRole9D44FC49",
             "trace": [
-              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:51:35)",
+              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:51:35)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -63,13 +66,13 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/ControlPlaneSecurityGroup/Resource": [
+        "/eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitControlPlaneSecurityGroupFA4498DF",
+            "data": "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0",
             "trace": [
-              "new SecurityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:141:30)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:58:54)",
+              "new SecurityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:141:30)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:58:54)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -90,21 +93,21 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/ControlPlaneSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:443": [
+        "/eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:443": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitControlPlaneSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E60034436FF83D65",
+            "data": "ekscontrolplaneControlPlaneSecurityGroupfromeksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341443522A4729",
             "trace": [
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
-              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
-              "Connections.allowTo (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:72:31)",
-              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:169:38)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
+              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
+              "Connections.allowTo (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:72:31)",
+              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:169:38)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -132,15 +135,15 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/Resource": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandlerServiceRoleDC3869B1",
+            "data": "ekscontrolplaneResourceHandlerServiceRole8BB7737B",
             "trace": [
-              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:59:35)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:59:35)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -161,16 +164,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
+            "data": "ekscontrolplaneResourceHandlerServiceRoleDefaultPolicy4EC25A3E",
             "trace": [
-              "new Policy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
-              "Role.addToPolicy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/role.js:124:34)",
-              "Function.addToRolePolicy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:32:19)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:36:17)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Policy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/policy.js:29:26)",
+              "Role.addToPolicy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/role.js:124:34)",
+              "Function.addToRolePolicy (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:32:19)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:36:17)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -191,24 +194,24 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/Code": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/Code": [
           {
             "type": "aws:cdk:asset",
             "data": {
               "path": "asset.c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128",
-              "id": "eksclusterekssitResourceHandlerCode3A8F27AA",
+              "id": "eksclusterekscontrolplaneResourceHandlerCodeB23C1886",
               "packaging": "zip",
               "sourceHash": "c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128",
-              "s3BucketParameter": "ekssitResourceHandlerCodeS3Bucket760DF1FC",
-              "s3KeyParameter": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2",
-              "artifactHashParameter": "ekssitResourceHandlerCodeArtifactHashA81B6180"
+              "s3BucketParameter": "ekscontrolplaneResourceHandlerCodeS3BucketE1F3D052",
+              "s3KeyParameter": "ekscontrolplaneResourceHandlerCodeS3VersionKeyB62D90FE",
+              "artifactHashParameter": "ekscontrolplaneResourceHandlerCodeArtifactHash6655F4E2"
             },
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:65:19)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:65:19)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -229,16 +232,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/Code/S3Bucket": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/Code/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandlerCodeS3Bucket760DF1FC",
+            "data": "ekscontrolplaneResourceHandlerCodeS3BucketE1F3D052",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:32:29)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:32:29)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -259,16 +262,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/Code/S3VersionKey": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/Code/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2",
+            "data": "ekscontrolplaneResourceHandlerCodeS3VersionKeyB62D90FE",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:36:26)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:36:26)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -289,16 +292,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/Code/ArtifactHash": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/Code/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandlerCodeArtifactHashA81B6180",
+            "data": "ekscontrolplaneResourceHandlerCodeArtifactHash6655F4E2",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:27)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:27)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -319,14 +322,14 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/ResourceHandler/Resource": [
+        "/eks-cluster/eks-control-plane/Resource/ResourceHandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitResourceHandler2659A06A",
+            "data": "ekscontrolplaneResourceHandlerDB89B1A6",
             "trace": [
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:75:26)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:75:26)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:24:25)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -347,14 +350,14 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/Resource/Resource/Default": [
+        "/eks-cluster/eks-control-plane/Resource/Resource/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssit1D172432",
+            "data": "ekscontrolplane79F9EC48",
             "trace": [
-              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:46:26)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:46:26)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -375,24 +378,24 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/KubernetesResourceHandler/Code": [
+        "/eks-cluster/eks-control-plane/KubernetesResourceHandler/Code": [
           {
             "type": "aws:cdk:asset",
             "data": {
               "path": "asset.640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444",
-              "id": "eksclusterekssitKubernetesResourceHandlerCodeB8681D48",
+              "id": "eksclusterekscontrolplaneKubernetesResourceHandlerCode3D6B8638",
               "packaging": "zip",
               "sourceHash": "640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444",
-              "s3BucketParameter": "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656",
-              "s3KeyParameter": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905",
-              "artifactHashParameter": "ekssitKubernetesResourceHandlerCodeArtifactHash0FDC37CC"
+              "s3BucketParameter": "ekscontrolplaneKubernetesResourceHandlerCodeS3Bucket904004DD",
+              "s3KeyParameter": "ekscontrolplaneKubernetesResourceHandlerCodeS3VersionKeyECC17112",
+              "artifactHashParameter": "ekscontrolplaneKubernetesResourceHandlerCodeArtifactHashEC74F859"
             },
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:65:19)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:65:19)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -413,16 +416,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/KubernetesResourceHandler/Code/S3Bucket": [
+        "/eks-cluster/eks-control-plane/KubernetesResourceHandler/Code/S3Bucket": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656",
+            "data": "ekscontrolplaneKubernetesResourceHandlerCodeS3Bucket904004DD",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:32:29)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:32:29)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -443,16 +446,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/KubernetesResourceHandler/Code/S3VersionKey": [
+        "/eks-cluster/eks-control-plane/KubernetesResourceHandler/Code/S3VersionKey": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905",
+            "data": "ekscontrolplaneKubernetesResourceHandlerCodeS3VersionKeyECC17112",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:36:26)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:36:26)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -473,16 +476,16 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/KubernetesResourceHandler/Code/ArtifactHash": [
+        "/eks-cluster/eks-control-plane/KubernetesResourceHandler/Code/ArtifactHash": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitKubernetesResourceHandlerCodeArtifactHash0FDC37CC",
+            "data": "ekscontrolplaneKubernetesResourceHandlerCodeArtifactHashEC74F859",
             "trace": [
-              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:27)",
-              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
-              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
+              "new Asset (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:27)",
+              "AssetCode.bind (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/code.js:134:26)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:73:33)",
+              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -503,14 +506,14 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/KubernetesResourceHandler/Resource": [
+        "/eks-cluster/eks-control-plane/KubernetesResourceHandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitKubernetesResourceHandler70DBC094",
+            "data": "ekscontrolplaneKubernetesResourceHandler0E573415",
             "trace": [
-              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-lambda/lib/function.js:75:26)",
-              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
+              "new Function (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-lambda/lib/function.js:75:26)",
+              "Cluster.createKubernetesResourceHandler (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:235:16)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:102:41)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -531,12 +534,12 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/ConfigCommand": [
+        "/eks-cluster/eks-control-plane/ConfigCommand": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitConfigCommandE7882BC7",
+            "data": "ekscontrolplaneConfigCommandA047C82A",
             "trace": [
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:122:13)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:122:13)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -557,14 +560,14 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/Resource": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "data": "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "trace": [
-              "new SecurityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:141:30)",
-              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:123:30)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
+              "new SecurityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:141:30)",
+              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:123:30)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -592,20 +595,20 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:ALL TRAFFIC": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:ALL TRAFFIC": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E6003ALLTRAFFIC763C4B30",
+            "data": "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341ALLTRAFFIC61BBBBEF",
             "trace": [
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
-              "_securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:108:31)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:107:38)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "Connections.allowInternally (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:106:30)",
-              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:164:38)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
+              "_securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:108:31)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:107:38)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "Connections.allowInternally (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:106:30)",
+              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:164:38)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -633,20 +636,20 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:443": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:443": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F44371AE32C6",
+            "data": "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF44381F8ABC0",
             "trace": [
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
-              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
-              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:166:38)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
+              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
+              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:166:38)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -674,20 +677,20 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:1025-65535": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:1025-65535": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F1025655350DF3E6E3",
+            "data": "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF1025655355BD0E98F",
             "trace": [
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
-              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
-              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
-              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
-              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
-              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:167:38)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:33:13)",
+              "SecurityGroup.addIngressRule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:167:19)",
+              "other.connections._securityGroupRules.forEachAndForever.rule (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:89:31)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "_securityGroups.forEachAndForever.securityGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:88:51)",
+              "ReactiveList.forEachAndForever (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:192:13)",
+              "Connections.allowFrom (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/connections.js:87:30)",
+              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:167:38)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -715,14 +718,14 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceRole/Resource": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceRoleA484A457",
+            "data": "ekscontrolplaneworkernodeInstanceRole4744DD3F",
             "trace": [
-              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
-              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:130:35)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
+              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:130:35)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -750,13 +753,13 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/InstanceProfile": [
+        "/eks-cluster/eks-control-plane/worker-node/InstanceProfile": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeInstanceProfileBA8EA190",
+            "data": "ekscontrolplaneworkernodeInstanceProfile94EB2033",
             "trace": [
-              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:133:28)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
+              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:133:28)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -784,13 +787,13 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/LaunchConfig": [
+        "/eks-cluster/eks-control-plane/worker-node/LaunchConfig": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeLaunchConfig1B30F35C",
+            "data": "ekscontrolplaneworkernodeLaunchConfig8BC2BB11",
             "trace": [
-              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:141:30)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
+              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:141:30)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -818,13 +821,13 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/worker-node/ASG": [
+        "/eks-cluster/eks-control-plane/worker-node/ASG": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitworkernodeASGBDD0FCFF",
+            "data": "ekscontrolplaneworkernodeASG14CBDF68",
             "trace": [
-              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:207:33)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
+              "new AutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-autoscaling/lib/auto-scaling-group.js:207:33)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:132:21)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -852,17 +855,17 @@
             ]
           }
         ],
-        "/eks-cluster/eks-sit/AwsAuth/manifest/Resource/Default": [
+        "/eks-cluster/eks-control-plane/AwsAuth/manifest/Resource/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ekssitAwsAuthmanifestD6105016",
+            "data": "ekscontrolplaneAwsAuthmanifest9E19CA74",
             "trace": [
-              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
-              "new KubernetesResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/k8s-resource.js:22:9)",
-              "new AwsAuth (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/aws-auth.js:17:9)",
-              "Cluster.get awsAuth [as awsAuth] (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:214:29)",
-              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:190:18)",
-              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
+              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
+              "new KubernetesResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/k8s-resource.js:22:9)",
+              "new AwsAuth (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/aws-auth.js:17:9)",
+              "Cluster.get awsAuth [as awsAuth] (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:214:29)",
+              "Cluster.addAutoScalingGroup (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:190:18)",
+              "Cluster.addCapacity (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:142:14)",
               "_wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:51)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "ret._ensureSync (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6498:25)",
@@ -895,10 +898,10 @@
             "type": "aws:cdk:logicalId",
             "data": "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA",
             "trace": [
-              "new KubectlLayer (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/kubectl-layer.js:22:26)",
-              "Function.getOrCreate (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/kubectl-layer.js:46:16)",
-              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:30:51)",
-              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
+              "new KubectlLayer (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/kubectl-layer.js:22:26)",
+              "Function.getOrCreate (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/kubectl-layer.js:46:16)",
+              "new ClusterResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster-resource.js:30:51)",
+              "new Cluster (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/cluster.js:81:24)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -924,7 +927,7 @@
             "type": "aws:cdk:logicalId",
             "data": "AdminRole38563C57",
             "trace": [
-              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
+              "new Role (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-iam/lib/role.js:35:22)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -962,8 +965,8 @@
             "type": "aws:cdk:logicalId",
             "data": "helmtillerrbac268D8979",
             "trace": [
-              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
-              "new KubernetesResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-eks/lib/k8s-resource.js:22:9)",
+              "new CustomResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-cloudformation/lib/custom-resource.js:32:25)",
+              "new KubernetesResource (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-eks/lib/k8s-resource.js:22:9)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1019,7 +1022,7 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpc24660B53",
             "trace": [
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:213:25)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:213:25)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1072,13 +1075,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1SubnetD6CEC90F",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1131,13 +1134,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1RouteTableF24F9BB4",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1190,13 +1193,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1RouteTableAssociation74863BF6",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1249,10 +1252,10 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1DefaultRouteA119ADD0",
             "trace": [
-              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:524:23)",
-              "Vpc.publicSubnets.forEach.publicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:242:30)",
+              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:524:23)",
+              "Vpc.publicSubnets.forEach.publicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:242:30)",
               "Array.forEach (<anonymous>)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:241:32)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:241:32)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1305,9 +1308,9 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1EIP3145C77B",
             "trace": [
-              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:567:27)",
-              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
+              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:567:27)",
+              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1360,9 +1363,9 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet1NATGateway0E02DAC6",
             "trace": [
-              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:565:21)",
-              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
+              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:565:21)",
+              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1415,13 +1418,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2Subnet4C7DA152",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1474,13 +1477,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2RouteTable5AC828E8",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1533,13 +1536,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2RouteTableAssociationB99A8E22",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
-              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
+              "new PublicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:556:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:42)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1592,10 +1595,10 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2DefaultRoute5B78E619",
             "trace": [
-              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:524:23)",
-              "Vpc.publicSubnets.forEach.publicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:242:30)",
+              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:524:23)",
+              "Vpc.publicSubnets.forEach.publicSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:242:30)",
               "Array.forEach (<anonymous>)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:241:32)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:241:32)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1648,9 +1651,9 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2EIPD5D75DEE",
             "trace": [
-              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:567:27)",
-              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
+              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:567:27)",
+              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1703,9 +1706,9 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIngressSubnet2NATGatewayBCD1DED2",
             "trace": [
-              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:565:21)",
-              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
+              "PublicSubnet.addNatGateway (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:565:21)",
+              "Vpc.createNatGateways (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:375:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:245:18)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1758,13 +1761,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet1SubnetA0425106",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1817,13 +1820,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet1RouteTable297584EA",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1876,13 +1879,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet1RouteTableAssociation530F3C05",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1935,10 +1938,10 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet1DefaultRoute41B4EF3A",
             "trace": [
-              "PrivateSubnet.addDefaultNatRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:539:23)",
-              "Vpc.privateSubnets.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:253:31)",
+              "PrivateSubnet.addDefaultNatRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:539:23)",
+              "Vpc.privateSubnets.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:253:31)",
               "Array.forEach (<anonymous>)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:246:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:246:33)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -1991,13 +1994,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet2Subnet7D42A256",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:487:24)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -2050,13 +2053,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet2RouteTable6574E1C7",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:499:23)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -2109,13 +2112,13 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet2RouteTableAssociation3ADC12F1",
             "trace": [
-              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
-              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
-              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
+              "new Subnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:504:9)",
+              "new PrivateSubnet (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:583:9)",
+              "availabilityZones.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:421:43)",
               "Array.forEach (<anonymous>)",
-              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
-              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
+              "Vpc.createSubnetResources (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:400:32)",
+              "Vpc.createSubnets (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:391:18)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:231:14)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -2168,10 +2171,10 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcApplicationSubnet2DefaultRoute7F784DAF",
             "trace": [
-              "PrivateSubnet.addDefaultNatRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:539:23)",
-              "Vpc.privateSubnets.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:253:31)",
+              "PrivateSubnet.addDefaultNatRoute (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:539:23)",
+              "Vpc.privateSubnets.forEach (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:253:31)",
               "Array.forEach (<anonymous>)",
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:246:33)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:246:33)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -2224,7 +2227,7 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcIGW46170B07",
             "trace": [
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:235:25)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:235:25)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",
@@ -2277,7 +2280,7 @@
             "type": "aws:cdk:logicalId",
             "data": "eksvpcVPCGW02894A73",
             "trace": [
-              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-P5BDWX/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:237:25)",
+              "new Vpc (/private/var/folders/_8/tfwlbf4d0l3f0rqjspclq2z40000gn/T/jsii-kernel-sHGHEb/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:237:25)",
               "obj._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:49)",
               "Kernel._wrapSandboxCode (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:7131:20)",
               "Kernel._create (/Users/ricochen/bincentive/test-env/aws-cdk-example/eks-cluster/.env/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:6666:26)",

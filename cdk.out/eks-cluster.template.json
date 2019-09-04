@@ -1,7 +1,7 @@
 {
   "Transform": "AWS::Serverless-2016-10-31",
   "Resources": {
-    "ekssitClusterRole441C1D1A": {
+    "ekscontrolplaneClusterRole9D44FC49": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -44,10 +44,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/ClusterRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/ClusterRole/Resource"
       }
     },
-    "ekssitControlPlaneSecurityGroupFA4498DF": {
+    "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
         "GroupDescription": "EKS Control Plane Security Group",
@@ -61,34 +61,34 @@
         "VpcId": "vpc-04d93a30b262b42a4"
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/ControlPlaneSecurityGroup/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/Resource"
       }
     },
-    "ekssitControlPlaneSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E60034436FF83D65": {
+    "ekscontrolplaneControlPlaneSecurityGroupfromeksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341443522A4729": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:443",
+        "Description": "from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:443",
         "FromPort": 443,
         "GroupId": {
           "Fn::GetAtt": [
-            "ekssitControlPlaneSecurityGroupFA4498DF",
+            "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "GroupId"
           ]
         },
         "ToPort": 443
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/ControlPlaneSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:443"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:443"
       }
     },
-    "ekssitResourceHandlerServiceRoleDC3869B1": {
+    "ekscontrolplaneResourceHandlerServiceRole8BB7737B": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -119,10 +119,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/Resource/ResourceHandler/ServiceRole/Resource"
       }
     },
-    "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874": {
+    "ekscontrolplaneResourceHandlerServiceRoleDefaultPolicy4EC25A3E": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -141,7 +141,7 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "ekssitClusterRole441C1D1A",
+                  "ekscontrolplaneClusterRole9D44FC49",
                   "Arn"
                 ]
               }
@@ -149,23 +149,23 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
+        "PolicyName": "ekscontrolplaneResourceHandlerServiceRoleDefaultPolicy4EC25A3E",
         "Roles": [
           {
-            "Ref": "ekssitResourceHandlerServiceRoleDC3869B1"
+            "Ref": "ekscontrolplaneResourceHandlerServiceRole8BB7737B"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/Resource/ResourceHandler/ServiceRole/DefaultPolicy/Resource"
       }
     },
-    "ekssitResourceHandler2659A06A": {
+    "ekscontrolplaneResourceHandlerDB89B1A6": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "ekssitResourceHandlerCodeS3Bucket760DF1FC"
+            "Ref": "ekscontrolplaneResourceHandlerCodeS3BucketE1F3D052"
           },
           "S3Key": {
             "Fn::Join": [
@@ -178,7 +178,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2"
+                          "Ref": "ekscontrolplaneResourceHandlerCodeS3VersionKeyB62D90FE"
                         }
                       ]
                     }
@@ -191,7 +191,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "ekssitResourceHandlerCodeS3VersionKeyEE8277B2"
+                          "Ref": "ekscontrolplaneResourceHandlerCodeS3VersionKeyB62D90FE"
                         }
                       ]
                     }
@@ -204,7 +204,7 @@
         "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
-            "ekssitResourceHandlerServiceRoleDC3869B1",
+            "ekscontrolplaneResourceHandlerServiceRole8BB7737B",
             "Arn"
           ]
         },
@@ -221,28 +221,28 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
-        "ekssitResourceHandlerServiceRoleDC3869B1"
+        "ekscontrolplaneResourceHandlerServiceRoleDefaultPolicy4EC25A3E",
+        "ekscontrolplaneResourceHandlerServiceRole8BB7737B"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/Resource/ResourceHandler/Resource",
+        "aws:cdk:path": "eks-cluster/eks-control-plane/Resource/ResourceHandler/Resource",
         "aws:asset:path": "asset.c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128",
         "aws:asset:property": "Code"
       }
     },
-    "ekssit1D172432": {
+    "ekscontrolplane79F9EC48": {
       "Type": "Custom::AWSCDK-EKS-Cluster",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "ekssitResourceHandler2659A06A",
+            "ekscontrolplaneResourceHandlerDB89B1A6",
             "Arn"
           ]
         },
         "Config": {
           "roleArn": {
             "Fn::GetAtt": [
-              "ekssitClusterRole441C1D1A",
+              "ekscontrolplaneClusterRole9D44FC49",
               "Arn"
             ]
           },
@@ -250,7 +250,7 @@
             "securityGroupIds": [
               {
                 "Fn::GetAtt": [
-                  "ekssitControlPlaneSecurityGroupFA4498DF",
+                  "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0",
                   "GroupId"
                 ]
               }
@@ -267,15 +267,15 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/Resource/Resource/Default"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/Resource/Resource/Default"
       }
     },
-    "ekssitKubernetesResourceHandler70DBC094": {
+    "ekscontrolplaneKubernetesResourceHandler0E573415": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656"
+            "Ref": "ekscontrolplaneKubernetesResourceHandlerCodeS3Bucket904004DD"
           },
           "S3Key": {
             "Fn::Join": [
@@ -288,7 +288,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905"
+                          "Ref": "ekscontrolplaneKubernetesResourceHandlerCodeS3VersionKeyECC17112"
                         }
                       ]
                     }
@@ -301,7 +301,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905"
+                          "Ref": "ekscontrolplaneKubernetesResourceHandlerCodeS3VersionKeyECC17112"
                         }
                       ]
                     }
@@ -314,7 +314,7 @@
         "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
-            "ekssitResourceHandlerServiceRoleDC3869B1",
+            "ekscontrolplaneResourceHandlerServiceRole8BB7737B",
             "Arn"
           ]
         },
@@ -322,7 +322,7 @@
         "Environment": {
           "Variables": {
             "CLUSTER_NAME": {
-              "Ref": "ekssit1D172432"
+              "Ref": "ekscontrolplane79F9EC48"
             }
           }
         },
@@ -338,19 +338,19 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "ekssitResourceHandlerServiceRoleDefaultPolicy351BC874",
-        "ekssitResourceHandlerServiceRoleDC3869B1"
+        "ekscontrolplaneResourceHandlerServiceRoleDefaultPolicy4EC25A3E",
+        "ekscontrolplaneResourceHandlerServiceRole8BB7737B"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/KubernetesResourceHandler/Resource",
+        "aws:cdk:path": "eks-cluster/eks-control-plane/KubernetesResourceHandler/Resource",
         "aws:asset:path": "asset.640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444",
         "aws:asset:property": "Code"
       }
     },
-    "ekssitworkernodeInstanceSecurityGroup0DB93086": {
+    "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup",
+        "GroupDescription": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup",
         "SecurityGroupEgress": [
           {
             "CidrIp": "0.0.0.0/0",
@@ -361,7 +361,7 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "eks-cluster/eks-sit/worker-node"
+            "Value": "eks-cluster/eks-control-plane/worker-node"
           },
           {
             "Key": {
@@ -370,7 +370,7 @@
                 [
                   "kubernetes.io/cluster/",
                   {
-                    "Ref": "ekssit1D172432"
+                    "Ref": "ekscontrolplane79F9EC48"
                   }
                 ]
               ]
@@ -381,80 +381,80 @@
         "VpcId": "vpc-04d93a30b262b42a4"
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/Resource"
       }
     },
-    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitworkernodeInstanceSecurityGroup843E6003ALLTRAFFIC763C4B30": {
+    "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341ALLTRAFFIC61BBBBEF": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "-1",
-        "Description": "from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:ALL TRAFFIC",
+        "Description": "from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:ALL TRAFFIC",
         "GroupId": {
           "Fn::GetAtt": [
-            "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "GroupId"
           ]
         }
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitworkernodeInstanceSecurityGroup843E6003:ALL TRAFFIC"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneworkernodeInstanceSecurityGroup39180341:ALL TRAFFIC"
       }
     },
-    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F44371AE32C6": {
+    "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF44381F8ABC0": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterekssitControlPlaneSecurityGroupEA76089F:443",
+        "Description": "from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:443",
         "FromPort": 443,
         "GroupId": {
           "Fn::GetAtt": [
-            "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "ekssitControlPlaneSecurityGroupFA4498DF",
+            "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0",
             "GroupId"
           ]
         },
         "ToPort": 443
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:443"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:443"
       }
     },
-    "ekssitworkernodeInstanceSecurityGroupfromeksclusterekssitControlPlaneSecurityGroupEA76089F1025655350DF3E6E3": {
+    "ekscontrolplaneworkernodeInstanceSecurityGroupfromeksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF1025655355BD0E98F": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from eksclusterekssitControlPlaneSecurityGroupEA76089F:1025-65535",
+        "Description": "from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:1025-65535",
         "FromPort": 1025,
         "GroupId": {
           "Fn::GetAtt": [
-            "ekssitworkernodeInstanceSecurityGroup0DB93086",
+            "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
             "GroupId"
           ]
         },
         "SourceSecurityGroupId": {
           "Fn::GetAtt": [
-            "ekssitControlPlaneSecurityGroupFA4498DF",
+            "ekscontrolplaneControlPlaneSecurityGroup97CF4DD0",
             "GroupId"
           ]
         },
         "ToPort": 65535
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceSecurityGroup/from eksclusterekssitControlPlaneSecurityGroupEA76089F:1025-65535"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/from eksclusterekscontrolplaneControlPlaneSecurityGroupC3FA4AAF:1025-65535"
       }
     },
-    "ekssitworkernodeInstanceRoleA484A457": {
+    "ekscontrolplaneworkernodeInstanceRole4744DD3F": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -509,35 +509,35 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceRole/Resource"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceRole/Resource"
       }
     },
-    "ekssitworkernodeInstanceProfileBA8EA190": {
+    "ekscontrolplaneworkernodeInstanceProfile94EB2033": {
       "Type": "AWS::IAM::InstanceProfile",
       "Properties": {
         "Roles": [
           {
-            "Ref": "ekssitworkernodeInstanceRoleA484A457"
+            "Ref": "ekscontrolplaneworkernodeInstanceRole4744DD3F"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/InstanceProfile"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceProfile"
       }
     },
-    "ekssitworkernodeLaunchConfig1B30F35C": {
+    "ekscontrolplaneworkernodeLaunchConfig8BC2BB11": {
       "Type": "AWS::AutoScaling::LaunchConfiguration",
       "Properties": {
         "ImageId": "ami-07fd7609df6c8e39b",
         "InstanceType": "t3.small",
         "IamInstanceProfile": {
-          "Ref": "ekssitworkernodeInstanceProfileBA8EA190"
+          "Ref": "ekscontrolplaneworkernodeInstanceProfile94EB2033"
         },
         "KeyName": "k8s-lab",
         "SecurityGroups": [
           {
             "Fn::GetAtt": [
-              "ekssitworkernodeInstanceSecurityGroup0DB93086",
+              "ekscontrolplaneworkernodeInstanceSecurityGroup332F93E1",
               "GroupId"
             ]
           }
@@ -549,7 +549,7 @@
               [
                 "#!/bin/bash\nset -o xtrace\n/etc/eks/bootstrap.sh ",
                 {
-                  "Ref": "ekssit1D172432"
+                  "Ref": "ekscontrolplane79F9EC48"
                 },
                 " --use-max-pods 11"
               ]
@@ -558,26 +558,26 @@
         }
       },
       "DependsOn": [
-        "ekssitworkernodeInstanceRoleA484A457"
+        "ekscontrolplaneworkernodeInstanceRole4744DD3F"
       ],
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/LaunchConfig"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/LaunchConfig"
       }
     },
-    "ekssitworkernodeASGBDD0FCFF": {
+    "ekscontrolplaneworkernodeASG14CBDF68": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
         "MaxSize": "2",
         "MinSize": "1",
         "DesiredCapacity": "2",
         "LaunchConfigurationName": {
-          "Ref": "ekssitworkernodeLaunchConfig1B30F35C"
+          "Ref": "ekscontrolplaneworkernodeLaunchConfig8BC2BB11"
         },
         "Tags": [
           {
             "Key": "Name",
             "PropagateAtLaunch": true,
-            "Value": "eks-cluster/eks-sit/worker-node"
+            "Value": "eks-cluster/eks-control-plane/worker-node"
           },
           {
             "Key": {
@@ -586,7 +586,7 @@
                 [
                   "kubernetes.io/cluster/",
                   {
-                    "Ref": "ekssit1D172432"
+                    "Ref": "ekscontrolplane79F9EC48"
                   }
                 ]
               ]
@@ -617,15 +617,15 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/worker-node/ASG"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/ASG"
       }
     },
-    "ekssitAwsAuthmanifestD6105016": {
+    "ekscontrolplaneAwsAuthmanifest9E19CA74": {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "ekssitKubernetesResourceHandler70DBC094",
+            "ekscontrolplaneKubernetesResourceHandler0E573415",
             "Arn"
           ]
         },
@@ -636,7 +636,7 @@
               "[{\"apiVersion\":\"v1\",\"kind\":\"ConfigMap\",\"metadata\":{\"name\":\"aws-auth\",\"namespace\":\"kube-system\"},\"data\":{\"mapRoles\":\"[{\\\"rolearn\\\":\\\"",
               {
                 "Fn::GetAtt": [
-                  "ekssitworkernodeInstanceRoleA484A457",
+                  "ekscontrolplaneworkernodeInstanceRole4744DD3F",
                   "Arn"
                 ]
               },
@@ -655,7 +655,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "eks-cluster/eks-sit/AwsAuth/manifest/Resource/Default"
+        "aws:cdk:path": "eks-cluster/eks-control-plane/AwsAuth/manifest/Resource/Default"
       }
     },
     "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": {
@@ -698,7 +698,7 @@
       "Properties": {
         "ServiceToken": {
           "Fn::GetAtt": [
-            "ekssitKubernetesResourceHandler70DBC094",
+            "ekscontrolplaneKubernetesResourceHandler0E573415",
             "Arn"
           ]
         },
@@ -712,40 +712,40 @@
     }
   },
   "Parameters": {
-    "ekssitResourceHandlerCodeS3Bucket760DF1FC": {
+    "ekscontrolplaneResourceHandlerCodeS3BucketE1F3D052": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
+      "Description": "S3 bucket for asset \"eks-cluster/eks-control-plane/Resource/ResourceHandler/Code\""
     },
-    "ekssitResourceHandlerCodeS3VersionKeyEE8277B2": {
+    "ekscontrolplaneResourceHandlerCodeS3VersionKeyB62D90FE": {
       "Type": "String",
-      "Description": "S3 key for asset version \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
+      "Description": "S3 key for asset version \"eks-cluster/eks-control-plane/Resource/ResourceHandler/Code\""
     },
-    "ekssitResourceHandlerCodeArtifactHashA81B6180": {
+    "ekscontrolplaneResourceHandlerCodeArtifactHash6655F4E2": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"eks-cluster/eks-sit/Resource/ResourceHandler/Code\""
+      "Description": "Artifact hash for asset \"eks-cluster/eks-control-plane/Resource/ResourceHandler/Code\""
     },
-    "ekssitKubernetesResourceHandlerCodeS3BucketDCBB1656": {
+    "ekscontrolplaneKubernetesResourceHandlerCodeS3Bucket904004DD": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
+      "Description": "S3 bucket for asset \"eks-cluster/eks-control-plane/KubernetesResourceHandler/Code\""
     },
-    "ekssitKubernetesResourceHandlerCodeS3VersionKey48B4A905": {
+    "ekscontrolplaneKubernetesResourceHandlerCodeS3VersionKeyECC17112": {
       "Type": "String",
-      "Description": "S3 key for asset version \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
+      "Description": "S3 key for asset version \"eks-cluster/eks-control-plane/KubernetesResourceHandler/Code\""
     },
-    "ekssitKubernetesResourceHandlerCodeArtifactHash0FDC37CC": {
+    "ekscontrolplaneKubernetesResourceHandlerCodeArtifactHashEC74F859": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"eks-cluster/eks-sit/KubernetesResourceHandler/Code\""
+      "Description": "Artifact hash for asset \"eks-cluster/eks-control-plane/KubernetesResourceHandler/Code\""
     }
   },
   "Outputs": {
-    "ekssitConfigCommandE7882BC7": {
+    "ekscontrolplaneConfigCommandA047C82A": {
       "Value": {
         "Fn::Join": [
           "",
           [
             "aws eks update-kubeconfig --name ",
             {
-              "Ref": "ekssit1D172432"
+              "Ref": "ekscontrolplane79F9EC48"
             }
           ]
         ]
