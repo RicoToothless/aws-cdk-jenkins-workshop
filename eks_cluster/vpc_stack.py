@@ -20,7 +20,7 @@ class VpcStack(core.Stack):
             subnet_type=ec2.SubnetType.PRIVATE
         )
 
-        ec2.Vpc(self, 'eks-vpc',
+        self.eks_vpc = ec2.Vpc(self, 'eks-vpc',
             cidr='10.1.0.0/16',
             max_azs=2,
             subnet_configuration=[public_subnet, private_subnet]

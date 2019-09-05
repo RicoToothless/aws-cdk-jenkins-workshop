@@ -257,6 +257,10 @@
           {
             "Key": "aws-cdk:subnet-type",
             "Value": "Private"
+          },
+          {
+            "Key": "kubernetes.io/role/internal-elb",
+            "Value": "1"
           }
         ]
       },
@@ -274,6 +278,10 @@
           {
             "Key": "Name",
             "Value": "vpc-stack/eks-vpc/ApplicationSubnet1"
+          },
+          {
+            "Key": "kubernetes.io/role/internal-elb",
+            "Value": "1"
           }
         ]
       },
@@ -331,6 +339,10 @@
           {
             "Key": "aws-cdk:subnet-type",
             "Value": "Private"
+          },
+          {
+            "Key": "kubernetes.io/role/internal-elb",
+            "Value": "1"
           }
         ]
       },
@@ -348,6 +360,10 @@
           {
             "Key": "Name",
             "Value": "vpc-stack/eks-vpc/ApplicationSubnet2"
+          },
+          {
+            "Key": "kubernetes.io/role/internal-elb",
+            "Value": "1"
           }
         ]
       },
@@ -410,6 +426,48 @@
       },
       "Metadata": {
         "aws:cdk:path": "vpc-stack/eks-vpc/VPCGW"
+      }
+    }
+  },
+  "Outputs": {
+    "ExportsOutputRefeksvpc24660B53FAF5E1B4": {
+      "Value": {
+        "Ref": "eksvpc24660B53"
+      },
+      "Export": {
+        "Name": "vpc-stack:ExportsOutputRefeksvpc24660B53FAF5E1B4"
+      }
+    },
+    "ExportsOutputRefeksvpcIngressSubnet1SubnetD6CEC90FC0703BF7": {
+      "Value": {
+        "Ref": "eksvpcIngressSubnet1SubnetD6CEC90F"
+      },
+      "Export": {
+        "Name": "vpc-stack:ExportsOutputRefeksvpcIngressSubnet1SubnetD6CEC90FC0703BF7"
+      }
+    },
+    "ExportsOutputRefeksvpcIngressSubnet2Subnet4C7DA15251568788": {
+      "Value": {
+        "Ref": "eksvpcIngressSubnet2Subnet4C7DA152"
+      },
+      "Export": {
+        "Name": "vpc-stack:ExportsOutputRefeksvpcIngressSubnet2Subnet4C7DA15251568788"
+      }
+    },
+    "ExportsOutputRefeksvpcApplicationSubnet1SubnetA042510683424E29": {
+      "Value": {
+        "Ref": "eksvpcApplicationSubnet1SubnetA0425106"
+      },
+      "Export": {
+        "Name": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet1SubnetA042510683424E29"
+      }
+    },
+    "ExportsOutputRefeksvpcApplicationSubnet2Subnet7D42A25672EC971A": {
+      "Value": {
+        "Ref": "eksvpcApplicationSubnet2Subnet7D42A256"
+      },
+      "Export": {
+        "Name": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet2Subnet7D42A25672EC971A"
       }
     }
   }

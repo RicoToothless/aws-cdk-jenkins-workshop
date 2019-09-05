@@ -58,7 +58,9 @@
             "IpProtocol": "-1"
           }
         ],
-        "VpcId": "vpc-0a8d783d1fb31daa9"
+        "VpcId": {
+          "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpc24660B53FAF5E1B4"
+        }
       },
       "Metadata": {
         "aws:cdk:path": "eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/Resource"
@@ -256,10 +258,18 @@
               }
             ],
             "subnetIds": [
-              "subnet-023f8ace471e2e6fd",
-              "subnet-0e817a404ea368e29",
-              "subnet-07940b4e782f9a914",
-              "subnet-05c94f1238b4a3dd3"
+              {
+                "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcIngressSubnet1SubnetD6CEC90FC0703BF7"
+              },
+              {
+                "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcIngressSubnet2Subnet4C7DA15251568788"
+              },
+              {
+                "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet1SubnetA042510683424E29"
+              },
+              {
+                "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet2Subnet7D42A25672EC971A"
+              }
             ]
           }
         }
@@ -378,7 +388,9 @@
             "Value": "owned"
           }
         ],
-        "VpcId": "vpc-0a8d783d1fb31daa9"
+        "VpcId": {
+          "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpc24660B53FAF5E1B4"
+        }
       },
       "Metadata": {
         "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/Resource"
@@ -596,8 +608,12 @@
           }
         ],
         "VPCZoneIdentifier": [
-          "subnet-07940b4e782f9a914",
-          "subnet-05c94f1238b4a3dd3"
+          {
+            "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet1SubnetA042510683424E29"
+          },
+          {
+            "Fn::ImportValue": "vpc-stack:ExportsOutputRefeksvpcApplicationSubnet2Subnet7D42A25672EC971A"
+          }
         ]
       },
       "UpdatePolicy": {
