@@ -9,7 +9,7 @@ from load_yaml import *
 
 class EksClusterStack(core.Stack):
 
-    def __init__(self, scope: core.App, id: str, props: ec2.Vpc, **kwargs) -> None:
+    def __init__(self, scope: core.Construct, id: str, props: ec2.Vpc, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
         cluster = eks.Cluster(self, 'eks-control-plane',
