@@ -58,7 +58,7 @@
             "IpProtocol": "-1"
           }
         ],
-        "VpcId": "vpc-04d93a30b262b42a4"
+        "VpcId": "vpc-0a8d783d1fb31daa9"
       },
       "Metadata": {
         "aws:cdk:path": "eks-cluster/eks-control-plane/ControlPlaneSecurityGroup/Resource"
@@ -256,10 +256,10 @@
               }
             ],
             "subnetIds": [
-              "subnet-0be5a79226e88b212",
-              "subnet-0eb56395eb0ce93d7",
-              "subnet-098316d30b314b222",
-              "subnet-0e6472be22b5e0d3a"
+              "subnet-023f8ace471e2e6fd",
+              "subnet-0e817a404ea368e29",
+              "subnet-07940b4e782f9a914",
+              "subnet-05c94f1238b4a3dd3"
             ]
           }
         }
@@ -378,7 +378,7 @@
             "Value": "owned"
           }
         ],
-        "VpcId": "vpc-04d93a30b262b42a4"
+        "VpcId": "vpc-0a8d783d1fb31daa9"
       },
       "Metadata": {
         "aws:cdk:path": "eks-cluster/eks-control-plane/worker-node/InstanceSecurityGroup/Resource"
@@ -596,8 +596,8 @@
           }
         ],
         "VPCZoneIdentifier": [
-          "subnet-098316d30b314b222",
-          "subnet-0e6472be22b5e0d3a"
+          "subnet-07940b4e782f9a914",
+          "subnet-05c94f1238b4a3dd3"
         ]
       },
       "UpdatePolicy": {
