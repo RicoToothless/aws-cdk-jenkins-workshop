@@ -10,7 +10,7 @@ app = core.App()
 
 vpc_stack = VpcStack(app, 'vpc-stack', env=
     {
-        'account': '628531345753',
+        'account': '475636345445',
         'region': 'ap-northeast-2'
     }
 )
@@ -19,7 +19,7 @@ eks_cluster_stack = EksClusterStack(app, 'eks-cluster',
     vpc_stack.eks_vpc,
     env=
     {
-        'account': '628531345753',
+        'account': '475636345445',
         'region': 'ap-northeast-2'
     }
 )

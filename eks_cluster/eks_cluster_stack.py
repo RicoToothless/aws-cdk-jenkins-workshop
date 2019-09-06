@@ -19,12 +19,12 @@ class EksClusterStack(core.Stack):
 
         self.cluster.add_capacity('worker-node',
             instance_type=ec2.InstanceType('t3.small'),
-            desired_capacity=2,
-            key_name='k8s-lab'
+            desired_capacity=3,
+#            key_name='k8s-lab'
         )
 
         eks_master_role = iam.Role(self, 'AdminRole',
-            assumed_by=iam.ArnPrincipal('arn:aws:iam::628531345753:user/Ricoco')
+            assumed_by=iam.ArnPrincipal('arn:aws:iam::475636345445:user/rico')
         )
 
         self.cluster.aws_auth.add_masters_role(eks_master_role)

@@ -545,7 +545,6 @@
         "IamInstanceProfile": {
           "Ref": "ekscontrolplaneworkernodeInstanceProfile94EB2033"
         },
-        "KeyName": "k8s-lab",
         "SecurityGroups": [
           {
             "Fn::GetAtt": [
@@ -579,9 +578,9 @@
     "ekscontrolplaneworkernodeASG14CBDF68": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
       "Properties": {
-        "MaxSize": "2",
+        "MaxSize": "3",
         "MinSize": "1",
-        "DesiredCapacity": "2",
+        "DesiredCapacity": "3",
         "LaunchConfigurationName": {
           "Ref": "ekscontrolplaneworkernodeLaunchConfig8BC2BB11"
         },
@@ -698,7 +697,7 @@
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": {
-                "AWS": "arn:aws:iam::628531345753:user/Ricoco"
+                "AWS": "arn:aws:iam::475636345445:user/rico"
               }
             }
           ],
