@@ -12,12 +12,12 @@ class EksClusterStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, props: ec2.Vpc, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        cluster = eks.Cluster(self, 'eks-control-plane',
+        self.cluster = eks.Cluster(self, 'eks-control-plane',
             vpc=props,
             default_capacity=0
         )
 
-        cluster.add_capacity('worker-node',
+        self.cluster.add_capacity('worker-node',
             instance_type=ec2.InstanceType('t3.small'),
             desired_capacity=2,
             key_name='k8s-lab'
@@ -27,9 +27,9 @@ class EksClusterStack(core.Stack):
             assumed_by=iam.ArnPrincipal('arn:aws:iam::628531345753:user/Ricoco')
         )
 
-        cluster.aws_auth.add_masters_role(eks_master_role)
+        self.cluster.aws_auth.add_masters_role(eks_master_role)
 
-        eks.KubernetesResource(self, 'helm-tiller-rbac',
-            cluster=cluster,
+        self.helm_tiller_rbac = eks.KubernetesResource(self, 'helm-tiller-rbac',
+           cluster=self.cluster,
             manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
         )
