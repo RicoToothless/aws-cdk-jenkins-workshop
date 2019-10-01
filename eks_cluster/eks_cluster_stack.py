@@ -1,3 +1,5 @@
+import imp
+
 from aws_cdk import (
     core,
     aws_iam as iam,
@@ -5,7 +7,9 @@ from aws_cdk import (
     aws_eks as eks,
 )
 
-from load_yaml import *
+from load_yaml import read_k8s_resource
+
+os_env = imp.load_source('base', 'env/base.py')
 
 class EksClusterStack(core.Stack):
 
@@ -31,12 +35,12 @@ class EksClusterStack(core.Stack):
         )
 
         eks_master_role = iam.Role(self, 'AdminRole',
-            assumed_by=iam.ArnPrincipal('arn:aws:iam::475636345445:user/rico')
+            assumed_by=iam.ArnPrincipal(os_env.eks_admin_iam_username)
         )
 
         self.cluster.aws_auth.add_masters_role(eks_master_role)
 
         self.helm_tiller_rbac = eks.KubernetesResource(self, 'helm-tiller-rbac',
            cluster=self.cluster,
-            manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
+           manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
         )
