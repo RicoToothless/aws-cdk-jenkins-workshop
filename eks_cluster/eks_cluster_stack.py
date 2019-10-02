@@ -24,15 +24,15 @@ class EksClusterStack(core.Stack):
         self.cluster.add_capacity('worker-node',
             instance_type=ec2.InstanceType('t3.small'),
             desired_capacity=5,
-#            key_name='k8s-lab'
+            key_name='eks-test-env-cluster',
         )
 
-        self.cluster.add_capacity('worker-node-public',
-            instance_type=ec2.InstanceType('t3.xlarge'),
-            desired_capacity=1,
-            key_name='eks-test-env-cluster',
-            vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC)
-        )
+#        self.cluster.add_capacity('worker-node-public',
+#            instance_type=ec2.InstanceType('t3.xlarge'),
+#            desired_capacity=1,
+#            key_name='eks-test-env-cluster',
+#            vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC)
+#        )
 
         eks_master_role = iam.Role(self, 'AdminRole',
             assumed_by=iam.ArnPrincipal(os_env.eks_admin_iam_username)
