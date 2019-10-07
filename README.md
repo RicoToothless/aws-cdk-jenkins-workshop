@@ -1,4 +1,3 @@
-
 # Welcome to your CDK Python project!
 
 This is a blank project for Python development with CDK.
@@ -55,4 +54,13 @@ command.
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
 
-Enjoy!
+# Project Environment Parameters
+Mandatory Environment Parameters
+```
+$ EKS_ADMIN_IAM_USERNAME={IAM ARN}
+```
+Optional Environment Parameters
+```
+$ CDK_DEFAULT_ACCOUNT={AWS Account id}
+$ CDK_DEFAULT_REGION={region name}
+```

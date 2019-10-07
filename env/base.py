@@ -18,6 +18,4 @@ bincentive_aws_account = {
     'region': env_or_default('CDK_DEFAULT_REGION', 'ap-northeast-2')
 }
 
-
 eks_admin_iam_username = env_or_error('EKS_ADMIN_IAM_USERNAME')
-
