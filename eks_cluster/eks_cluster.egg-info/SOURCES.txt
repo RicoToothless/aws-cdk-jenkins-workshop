@@ -1,7 +1,0 @@
-README.md
-setup.py
-eks_cluster/eks_cluster.egg-info/PKG-INFO
-eks_cluster/eks_cluster.egg-info/SOURCES.txt
-eks_cluster/eks_cluster.egg-info/dependency_links.txt
-eks_cluster/eks_cluster.egg-info/requires.txt
-eks_cluster/eks_cluster.egg-info/top_level.txt
