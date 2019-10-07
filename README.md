@@ -61,6 +61,6 @@ $ EKS_ADMIN_IAM_USERNAME={IAM ARN}
 ```
 Optional Environment Parameters
 ```
-$ CDK_DEFAULT_ACCOUNT={AWS Account id}
-$ CDK_DEFAULT_REGION={region name}
+$ CDK_ACCOUNT={AWS Account id}
+$ CDK_REGION={region name}
 ```
