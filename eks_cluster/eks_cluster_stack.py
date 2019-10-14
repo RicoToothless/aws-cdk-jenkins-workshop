@@ -23,7 +23,7 @@ class EksClusterStack(core.Stack):
 
         self.cluster.add_capacity('worker-node',
             instance_type=ec2.InstanceType('t3.medium'),
-            desired_capacity=5,
+            desired_capacity=4,
             key_name='eks-test-env-cluster',
         )
 

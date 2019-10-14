@@ -13,9 +13,12 @@ def env_or_error(name):
         sys.exit(1)
     return env
 
+cdk_default_account = os.environ.get('CDK_DEFAULT_ACCOUNT')
+cdk_default_region = os.environ.get('CDK_DEFAULT_REGION')
+
 eks_admin_iam_username = env_or_error('EKS_ADMIN_IAM_USERNAME')
 
 bincentive_aws_account = {
-    'account': env_or_default('CDK_ACCOUNT', 'CDK_DEFAULT_ACCOUNT'),
-    'region': env_or_default('CDK_REGION', 'CDK_DEFAULT_REGION')
+    'account': env_or_default('CDK_ACCOUNT', cdk_default_account),
+    'region': env_or_default('CDK_REGION', cdk_default_region)
 }
