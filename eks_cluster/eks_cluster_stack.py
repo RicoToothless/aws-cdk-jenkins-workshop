@@ -42,5 +42,5 @@ class EksClusterStack(core.Stack):
 
         self.helm_tiller_rbac = eks.KubernetesResource(self, 'helm-tiller-rbac',
            cluster=self.cluster,
-           manifest=read_k8s_resource('kubernetes-resources/helm-tiller-rbac.yaml')
+           manifest=read_k8s_resource('kubernetes_resources/helm-tiller-rbac.yaml')
         )
