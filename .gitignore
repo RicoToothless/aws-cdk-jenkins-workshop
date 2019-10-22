@@ -11,3 +11,6 @@ __pycache__/
 cdk.context.json
 .cdk.staging/
 cdk.out/
+
+# VSCode files
+.vscode
