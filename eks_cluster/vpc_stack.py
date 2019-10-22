@@ -5,8 +5,8 @@ from aws_cdk import (
 
 class VpcStack(core.Stack):
 
-    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
-        super().__init__(scope, id, **kwargs)
+    def __init__(self, scope: core.Construct, name: str, **kwargs) -> None:
+        super().__init__(scope, name, **kwargs)
 
         public_subnet = ec2.SubnetConfiguration(
             cidr_mask=20,
@@ -20,7 +20,8 @@ class VpcStack(core.Stack):
             subnet_type=ec2.SubnetType.PRIVATE
         )
 
-        self.eks_vpc = ec2.Vpc(self, 'eks-vpc',
+        self.eks_vpc = ec2.Vpc(
+            self, 'eks-vpc',
             cidr='10.1.0.0/16',
             max_azs=2,
             subnet_configuration=[public_subnet, private_subnet]
