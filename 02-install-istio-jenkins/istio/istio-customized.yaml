@@ -1,0 +1,137 @@
+# Top level istio values file has the following sections.
+#
+# global: This file is the authoritative and exhaustive source for the global section.
+#
+# chart sections: Every subdirectory inside the charts/ directory has a top level
+#       configuration key in this file. This file overrides the values specified
+#       by the charts/${chartname}/values.yaml.
+#       Check the chart level values file for exhaustive list of configuration options.
+
+#
+# Gateways Configuration, refer to the charts/gateways/values.yaml
+# for detailed configuration
+#
+gateways:
+  enabled: true
+
+#
+# sidecar-injector webhook configuration, refer to the
+# charts/sidecarInjectorWebhook/values.yaml for detailed configuration
+#
+sidecarInjectorWebhook:
+  enabled: true
+
+#
+# galley configuration, refer to charts/galley/values.yaml
+# for detailed configuration
+#
+galley:
+  enabled: true
+
+#
+# mixer configuration
+#
+# @see charts/mixer/values.yaml for all values
+mixer:
+  policy:
+    # if policy is enabled the global.disablePolicyChecks has affect.
+    enabled: true
+
+  telemetry:
+    enabled: true
+#
+# pilot configuration
+#
+# @see charts/pilot/values.yaml
+pilot:
+  enabled: true
+
+#
+# security configuration
+#
+security:
+  enabled: true
+
+#
+# nodeagent configuration
+#
+nodeagent:
+  enabled: false
+
+#
+# addon grafana configuration
+#
+grafana:
+  enabled: true
+
+#
+# addon prometheus configuration
+#
+prometheus:
+  enabled: true
+
+#
+# addon jaeger tracing configuration
+#
+tracing:
+  enabled: true
+
+#
+# addon kiali tracing configuration
+#
+kiali:
+  enabled: true
+  createDemoSecret: true
+
+# addon Istio CoreDNS configuration
+#
+istiocoredns:
+  enabled: false
+
+# Common settings used among istio subcharts.
+global:
+  proxy:
+
+    # Default port for Pilot agent health checks. A value of 0 will disable health checking.
+    statusPort: 15020
+
+    # This controls the 'policy' in the sidecar injector.
+    autoInject: enabled
+
+  # EnableTracing sets the value with same name in istio config map, requires pilot restart to take effect.
+  enableTracing: true
+
+  # Configuration for each of the supported tracers
+  tracer:
+    # Configuration for envoy to send trace data to LightStep.
+    # Disabled by default.
+    # address: the <host>:<port> of the satellite pool
+    # accessToken: required for sending data to the pool
+    # secure: specifies whether data should be sent with TLS
+    # cacertPath: the path to the file containing the cacert to use when verifying TLS. If secure is true, this is
+    #   required. If a value is specified then a secret called "lightstep.cacert" must be created in the destination
+    #   namespace with the key matching the base of the provided cacertPath and the value being the cacert itself.
+    #
+    lightstep:
+      address: ""                # example: lightstep-satellite:443
+      accessToken: ""            # example: abcdefg1234567
+      secure: true               # example: true|false
+      cacertPath: ""             # example: /etc/lightstep/cacert.pem
+    zipkin:
+      # Host:Port for reporting trace data in zipkin format. If not specified, will default to
+      # zipkin service (port 9411) in the same namespace as the other istio components.
+      address: ""
+    datadog:
+      # Host:Port for submitting traces to the Datadog agent.
+      address: "$(HOST_IP):8126"
+
+  # Default mtls policy. If true, mtls between services will be enabled by default.
+  mtls:
+    # Default setting for service-to-service mtls. Can be set explicitly using
+    # destination rules or service annotations.
+    enabled: false
+    # If set to true, and a given service does not have a corresponding DestinationRule configured,
+    # or its DestinationRule does not have TLSSettings specified, Istio configures client side
+    # TLS configuration automatically, based on the server side mTLS authentication policy and the
+    # availibity of sidecars.
+    auto: false
