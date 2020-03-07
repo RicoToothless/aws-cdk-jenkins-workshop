@@ -10,7 +10,7 @@ app = core.App()
 
 vpc_stack = VpcStack(app, 'vpc-stack', env=bincentive_aws_account)
 
-eks_cluster_stack = EksClusterStack(app, 'eks-cluster', vpc=vpc_stack.eks_vpc, env=bincentive_aws_account)
+eks_cluster_stack = EksClusterStack(app, 'jenkins-workshop-eks-cluster', vpc=vpc_stack.eks_vpc, env=bincentive_aws_account)
 
 eks_cluster_stack.add_dependency(vpc_stack)
 

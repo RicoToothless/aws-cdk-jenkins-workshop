@@ -13,36 +13,27 @@ class EksClusterStack(core.Stack):
     def __init__(self, scope: core.Construct, name: str, vpc: ec2.IVpc, **kwargs) -> None:
         super().__init__(scope, name, **kwargs)
 
-        self.cluster = eks.Cluster(
-            self, 'eks-control-plane',
+        cluster = eks.Cluster(
+            self, 'jenkins-workshop-eks-control-plane',
             vpc=vpc,
             default_capacity=0
         )
 
-        self.cluster.add_capacity(
+        cluster.add_capacity(
             'worker-node',
             instance_type=ec2.InstanceType('t3.medium'),
-            desired_capacity=4,
-            key_name='eks-test-env-cluster'
+            desired_capacity=2,
         )
-
-#        self.cluster.add_capacity(
-#            'worker-node-public',
-#            instance_type=ec2.InstanceType('t3.xlarge'),
-#            desired_capacity=1,
-#            key_name='eks-test-env-cluster',
-#            vpc_subnets=ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC)
-#        )
 
         eks_master_role = iam.Role(
             self, 'AdminRole',
             assumed_by=iam.ArnPrincipal(get_eks_admin_iam_username())
         )
 
-        self.cluster.aws_auth.add_masters_role(eks_master_role)
+        cluster.aws_auth.add_masters_role(eks_master_role)
 
-        self.helm_tiller_rbac = eks.KubernetesResource(
+        helm_tiller_rbac = eks.KubernetesResource(
             self, 'helm-tiller-rbac',
-            cluster=self.cluster,
+            cluster=cluster,
             manifest=read_k8s_resource('kubernetes_resources/helm-tiller-rbac.yaml')
         )
