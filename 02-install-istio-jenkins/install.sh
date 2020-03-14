@@ -1,5 +1,19 @@
 #!/bin/sh
 
+set -e
+
+# install helm & kubectl cli
+
+wget https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz
+tar -zxvf helm-v2.16.1-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
 # get aws eks kube-config
 
 EKS_CLUSTER_NAME=`aws eks list-clusters | grep jenkinsworkshopekscontrolplane | cut -d '"' -s -f2`
