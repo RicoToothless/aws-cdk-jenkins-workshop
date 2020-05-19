@@ -66,7 +66,7 @@ master:
   # Used for label app.kubernetes.io/component
   componentName: "jenkins-master"
   image: "jenkins/jenkins"
-  tag: "2.204.4"
+  tag: "2.204.6"
   imagePullPolicy: "Always"
   imagePullSecretName:
   # Optionally configure lifetime for master-container
@@ -92,7 +92,7 @@ master:
      <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
        <denyAnonymousReadAccess>true</denyAnonymousReadAccess>
      </authorizationStrategy>
-  hostNetworking: false
+  hostNetworking: true
   # When enabling LDAP or another non-Jenkins identity source, the built-in admin account will no longer exist.
   # Since the AdminUser is used by configAutoReload, in order to use configAutoReload you must change the
   # .master.adminUser to a valid username on your LDAP (or other) server.  This user does not need
@@ -224,6 +224,11 @@ master:
     - gitlab-plugin:1.5.13
     - pipeline-utility-steps:2.5.0
     - permissive-script-security:0.6
+    - blueocean:1.22.0
+    - slack:2.40
+    - role-strategy:2.16
+    - pipeline-github-lib:1.0
+    - aws-secrets-manager-credentials-provider:0.2.2
 
   # Enable to always override the installed plugins with the values of 'master.installPlugins' on upgrade or redeployment.
   # overwritePlugins: true
@@ -486,7 +491,7 @@ agent:
   podName: "default"
   # Allows the Pod to remain active for reuse until the configured number of
   # minutes has passed since the last step was executed on it.
-  idleMinutes: 0
+  idleMinutes: 10
   # Raw yaml template for the Pod. For example this allows usage of toleration for agent pods.
   # https://github.com/jenkinsci/kubernetes-plugin#using-yaml-to-define-pod-templates
   # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
