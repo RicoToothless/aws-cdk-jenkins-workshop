@@ -66,7 +66,7 @@ master:
   # Used for label app.kubernetes.io/component
   componentName: "jenkins-master"
   image: "jenkins/jenkins"
-  tag: "lts"
+  tag: "2.204.4"
   imagePullPolicy: "Always"
   imagePullSecretName:
   # Optionally configure lifetime for master-container
@@ -230,7 +230,6 @@ master:
     - pipeline-github-lib:1.0
     - pipeline-utility-steps:2.5.0
     - aws-secrets-manager-credentials-provider:0.2.2
-    - gitlab-plugin:1.5.13
 
   # Enable to always override the installed plugins with the values of 'master.installPlugins' on upgrade or redeployment.
   # overwritePlugins: true
