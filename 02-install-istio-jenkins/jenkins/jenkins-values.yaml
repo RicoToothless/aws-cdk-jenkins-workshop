@@ -228,7 +228,6 @@ master:
     - slack:2.40
     - role-strategy:2.16
     - pipeline-github-lib:1.0
-    - pipeline-utility-steps:2.5.0
     - aws-secrets-manager-credentials-provider:0.2.2
 
   # Enable to always override the installed plugins with the values of 'master.installPlugins' on upgrade or redeployment.
