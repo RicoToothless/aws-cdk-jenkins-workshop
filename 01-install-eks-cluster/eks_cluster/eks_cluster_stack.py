@@ -34,6 +34,16 @@ class EksClusterStack(core.Stack):
                 docker_config_json=read_docker_daemon_resource('kubernetes_resources/docker-daemon.json')
             )
         )
+        
+        asg_worker_nodes.add_to_role_policy(iam.PolicyStatement(
+            actions=[
+                'secretsmanager:GetSecretValue',
+                'secretsmanager:ListSecrets'
+                ],
+            resources=["*"]
+            )
+        )
+
         asg_jenkins_slave.add_to_role_policy(iam.PolicyStatement(
             actions=[
                 'ecr:CompleteLayerUpload',
