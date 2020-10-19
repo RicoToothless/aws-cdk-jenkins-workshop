@@ -22,7 +22,7 @@ aws secretsmanager delete-secret --secret-id slack-token-aws --force-delete-with
 sleep 25
 aws secretsmanager describe-secret --secret-id 'slack-token-aws'
 
-export EKS_ADMIN_IAM_USERNAME=`aws sts get-caller-identity | jq '.Arn' | cut -d '"' -s -f2`
+export EKS_ADMIN_IAM_USERNAME=`aws sts get-caller-identity --query Arn --output text`
 
 cd ../01-install-eks-cluster
 cdk destroy -f vpc-stack jenkins-workshop-eks-cluster ecr-repository
